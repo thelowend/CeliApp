@@ -30,28 +30,17 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, OnMapReadyCallback {
 
     private GoogleMap mMap;
+    private FirebaseDatabase db;
     private LocationManager locationManager;
-    private LocationListener locationListener;
     private Location usrLocation;
     private View mapView;
-
-    private void centerMapOnMyLocation() {
-
-        Criteria criteria = new Criteria();
-        usrLocation = locationManager.getLastKnownLocation(locationManager.getBestProvider(criteria, false));
-
-        if (usrLocation != null) {
-            //mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(location.getLatitude(), location.getLongitude()), 16));
-            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(usrLocation.getLatitude(), usrLocation.getLongitude()), 16));
-        } else {
-            //alerts it doesn't have permissions
-        }
-    }
 
 
     @Override
@@ -69,6 +58,14 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        //Firebase Database
+        db = FirebaseDatabase.getInstance();
+
+        DatabaseReference myRef = db.getReference("Locations");
+
+        myRef.setValue("Hello, World!");
+
 
         //Map
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
