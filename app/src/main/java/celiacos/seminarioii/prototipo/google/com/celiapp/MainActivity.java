@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity
     private LocationManager locationManager;
     private Location usrLocation;
     private View mapView;
+    private View locationButton;
 
 
     @Override
@@ -153,11 +154,21 @@ public class MainActivity extends AppCompatActivity
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
+        mMap.setOnMapLoadedCallback(new GoogleMap.OnMapLoadedCallback() {
+            @Override
+            public void onMapLoaded() {
+                //Centra en el usuario al inicio
+                if (locationButton != null) {
+                    locationButton.performClick();
+                }
+            }
+        });
+
         // Muevo el botón de locación abajo a la derecha.
         if (mapView != null &&
                 mapView.findViewById(Integer.parseInt("1")) != null) {
 
-            View locationButton = ((View) mapView.findViewById(Integer.parseInt("1")).getParent()).findViewById(Integer.parseInt("2"));
+            locationButton = ((View) mapView.findViewById(Integer.parseInt("1")).getParent()).findViewById(Integer.parseInt("2"));
 
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams)
                     locationButton.getLayoutParams();
@@ -165,21 +176,20 @@ public class MainActivity extends AppCompatActivity
             layoutParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM, RelativeLayout.TRUE);
             layoutParams.setMargins(0, 0, 30, 30);
 
-            locationButton.performClick();
+            if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION)
+                    == PackageManager.PERMISSION_GRANTED) {
+                mMap.setMyLocationEnabled(true);
+
+            } else {
+                ActivityCompat.requestPermissions(this,new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION}, 1);
+            }
 
         }
 
         loadMarkers();
 
-        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION)
-                == PackageManager.PERMISSION_GRANTED) {
-            mMap.setMyLocationEnabled(true);
-
-        } else {
-            ActivityCompat.requestPermissions(this,new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION}, 1);
-        }
-
     }
+
 
     @Override
     public void onBackPressed() {
