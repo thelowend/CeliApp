@@ -24,7 +24,7 @@ public class SplashScreen extends AppCompatActivity {
                     barrita.setVisibility(View.VISIBLE);
                     setProgresoBarrita(progreso);
 
-                    sleep(3000);
+                    sleep(1500);
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(intent);
                     finish();
@@ -42,7 +42,7 @@ public class SplashScreen extends AppCompatActivity {
             @Override
             public void run() {
                 try {
-                    Thread.sleep(500);
+                    Thread.sleep(100);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
