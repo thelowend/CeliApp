@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "888775899505",
+    "firebase_url": "https://celiapp-2f4d2.firebaseio.com",
+    "project_id": "celiapp-2f4d2",
+    "storage_bucket": "celiapp-2f4d2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:888775899505:android:8f4dca4477e81e39",
+        "android_client_info": {
+          "package_name": "celiacos.seminarioii.prototipo.google.com.celiapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "888775899505-0l1rr1a7kms4jheoovt48tsmtfmlepqq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "celiacos.seminarioii.prototipo.google.com.celiapp",
+            "certificate_hash": "4054a53f500d01c72a2d05f048187f356cd85da2"
+          }
+        },
+        {
+          "client_id": "888775899505-1fe8f9sm95r9ldhccn9cmrb9k8mluh8l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOWVqTvcbrzezVtCpePmZXePw9PNnKHR8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "888775899505-1fe8f9sm95r9ldhccn9cmrb9k8mluh8l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

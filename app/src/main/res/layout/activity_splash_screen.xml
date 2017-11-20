@@ -6,11 +6,11 @@
     android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
     tools:context="celiacos.seminarioii.prototipo.google.com.celiapp.SplashScreen">
 
-<ImageView
-    android:id="@+id/splashscreen"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:src="@drawable/splashscreen" />
+    <ImageView
+        android:id="@+id/splashscreen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/splashscreen" />
 
 <ProgressBar
     android:id="@+id/progressBar"
