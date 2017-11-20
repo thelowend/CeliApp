@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.SearchView;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -54,14 +55,14 @@ public class MainActivity extends AppCompatActivity
     private View mapView;
     private View locationButton;
 
-    private ArrayList<Establecimiento> establecimientos;
+    //Establecimientos ArrayList iniciación
+    private ArrayList<Establecimiento> establecimientos = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //
         setSupportActionBar(toolbar);
 
         //getSupportActionBar().setHomeAsUpIndicator(R.mipmap.ic_launcher);
@@ -83,10 +84,6 @@ public class MainActivity extends AppCompatActivity
 
         //Firebase Database
         db = FirebaseDatabase.getInstance();
-        //DatabaseReference dbRef = db.getReference();
-
-        //Establecimientos ArrayList iniciación
-        establecimientos = new ArrayList<>();
 
         //Map
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -106,15 +103,16 @@ public class MainActivity extends AppCompatActivity
 
     private void loadMarkers () {
 
-        //Carga datos de la base
+        //Carga la referencia a la base
         DatabaseReference myRef = db.getReference("Establecimientos");
 
+        //Guardo el contexto para pasarselo al singleton de Utils y usarlo con getIcon().
         final Context context = this;
 
+        //Escucha en tiempo real los datos
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-
                 for (DataSnapshot messageSnapshot: dataSnapshot.getChildren()) {
                     Establecimiento es = new Establecimiento(messageSnapshot);
 
@@ -127,13 +125,11 @@ public class MainActivity extends AppCompatActivity
                             .icon(BitmapDescriptorFactory.fromBitmap( Utils.getInstance().getIcon(es.getTipo(), context) )).anchor(0.5f, 0.6f));
 
                 }
-
             }
-
             @Override
-            public void onCancelled(DatabaseError error) {
+            public void onCancelled(DatabaseError databaseError) {
                 // Failed to read value
-                //Log.w(TAG, "Failed to read value.", error.toException());
+                Log.w("Establecimiento", "Falla al leer valor.", databaseError.toException());
             }
         });
 
