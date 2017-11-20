@@ -1,10 +1,9 @@
 package celiacos.seminarioii.prototipo.google.com.celiapp;
 
 import android.app.SearchManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
@@ -21,12 +20,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
-import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -35,14 +35,14 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.maps.android.ui.IconGenerator;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 
+import celiacos.seminarioii.prototipo.google.com.celiapp.Utils.Utils;
 import celiacos.seminarioii.prototipo.google.com.celiapp.establecimiento.entities.Establecimiento;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, OnMapReadyCallback {
+        implements NavigationView.OnNavigationItemSelectedListener, GoogleMap.OnInfoWindowClickListener, OnMapReadyCallback {
 
     private FirebaseDatabase db;
 
@@ -53,6 +53,8 @@ public class MainActivity extends AppCompatActivity
     private Location usrLocation;
     private View mapView;
     private View locationButton;
+
+    private ArrayList<Establecimiento> establecimientos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,6 +85,9 @@ public class MainActivity extends AppCompatActivity
         db = FirebaseDatabase.getInstance();
         //DatabaseReference dbRef = db.getReference();
 
+        //Establecimientos ArrayList iniciación
+        establecimientos = new ArrayList<>();
+
         //Map
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -101,26 +106,28 @@ public class MainActivity extends AppCompatActivity
 
     private void loadMarkers () {
 
-        //Crea datos para la base (lo mude al menú de arriba a la derecha)
-        //new CreateData();
-
         //Carga datos de la base
         DatabaseReference myRef = db.getReference("Establecimientos");
+
+        final Context context = this;
 
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
-                Object value = dataSnapshot.getValue();
-                //String a = "a";
-                HashMap<String, Establecimiento> estab = (HashMap<String, Establecimiento>) value;
 
-                //ArrayList<Establecimiento> estab = (ArrayList<Establecimiento>) value;
-                //dataSnapshot.getKey()
-                //String b = "b";
-                //Establecimiento es = (Establecimiento) estab.get();
-                //Log.d(TAG, "Value is: " + value);
+                for (DataSnapshot messageSnapshot: dataSnapshot.getChildren()) {
+                    Establecimiento es = new Establecimiento(messageSnapshot);
+
+                    //Guarda el establecimiento en memoria
+                    //TODO: Verificar que no este ya en memoria el establecimiento nuevo antes de agregarlo acá.
+                    establecimientos.add(es);
+
+                    //Añade el marcador al mapa
+                    mMap.addMarker(new MarkerOptions().position(es.getLocation()).title(es.getNombre()).snippet(es.getDescripcion())
+                            .icon(BitmapDescriptorFactory.fromBitmap( Utils.getInstance().getIcon(es.getTipo(), context) )).anchor(0.5f, 0.6f));
+
+                }
+
             }
 
             @Override
@@ -130,57 +137,13 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-
-        //mMap
-        IconGenerator icnGeneratorRG = new IconGenerator(this);
-        IconGenerator icnGeneratorRP = new IconGenerator(this);
-        IconGenerator icnGeneratorGG = new IconGenerator(this);
-
-
-        final BitmapDrawable restaurantGreen = (BitmapDrawable) this.getResources()
-                .getDrawable(R.mipmap.ic_restaurant_green);
-
-        final BitmapDrawable restaurantPink = (BitmapDrawable) this.getResources()
-                .getDrawable(R.mipmap.ic_restaurant_pink);
-
-        final BitmapDrawable glutenFreeGreen = (BitmapDrawable) this.getResources()
-                .getDrawable(R.mipmap.ic_gluten_free);
-
-        icnGeneratorRG.setBackground(restaurantGreen);
-        icnGeneratorRP.setBackground(restaurantPink);
-        icnGeneratorGG.setBackground(glutenFreeGreen);
-
-        Bitmap restaurantGreenBitmap = icnGeneratorRG.makeIcon();
-        Bitmap restaurantPinkBitmap = icnGeneratorRP.makeIcon();
-        Bitmap glutenFreeGreenBitmap = icnGeneratorGG.makeIcon();
-
-        //UADE
-        mMap.addMarker(new MarkerOptions().position(new LatLng(-34.616877, -58.381783))
-                .icon(BitmapDescriptorFactory.fromBitmap(glutenFreeGreenBitmap)).anchor(0.5f, 0.6f));
-
-        //CID CAMPEADOR
-        mMap.addMarker(new MarkerOptions().position(new LatLng(-34.607568, -58.445721))
-                .icon(BitmapDescriptorFactory.fromBitmap(restaurantPinkBitmap)).anchor(0.5f, 0.6f));
-
-        //Random cerca de UADE
-        mMap.addMarker(new MarkerOptions().position(new LatLng(-34.614825, -58.381750))
-                .icon(BitmapDescriptorFactory.fromBitmap(restaurantGreenBitmap)).anchor(0.5f, 0.6f));
-
-        //Random cerca de UADE 2
-        mMap.addMarker(new MarkerOptions().position(new LatLng(-34.617774, -58.385140))
-                .icon(BitmapDescriptorFactory.fromBitmap(restaurantPinkBitmap)).anchor(0.5f, 0.6f));
-
-        //Random cerca de UADE 3
-        mMap.addMarker(new MarkerOptions().position(new LatLng(-34.615011, -58.376750))
-                .icon(BitmapDescriptorFactory.fromBitmap(restaurantGreenBitmap)).anchor(0.5f, 0.6f));
-
-
-        //myPlaceItemMarkers.add();
     }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+
+        mMap.setOnInfoWindowClickListener(this);
 
         mMap.setOnMapLoadedCallback(new GoogleMap.OnMapLoadedCallback() {
             @Override
@@ -214,8 +177,17 @@ public class MainActivity extends AppCompatActivity
 
         }
 
+        //Cargo los marcadores en el mapa
         loadMarkers();
 
+    }
+
+    @Override
+    public void onInfoWindowClick(Marker marker) {
+        Toast.makeText(this, "Info window clicked",
+                Toast.LENGTH_SHORT).show();
+
+        //TODO:GOTORESTAURANTPAGE
     }
 
 
@@ -279,7 +251,7 @@ public class MainActivity extends AppCompatActivity
         }
 
         if (id == R.id.action_resetdb) {
-            new CreateData();
+            Utils.getInstance().createDbData();
             return true;
         }
 
