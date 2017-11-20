@@ -1,5 +1,6 @@
 package celiacos.seminarioii.prototipo.google.com.celiapp;
 
+import android.app.SearchManager;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -9,6 +10,8 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.view.MenuItemCompat;
+import android.support.v7.widget.SearchView;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -28,9 +31,16 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.maps.android.ui.IconGenerator;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, OnMapReadyCallback {
@@ -44,7 +54,6 @@ public class MainActivity extends AppCompatActivity
     private Location usrLocation;
     private View mapView;
     private View locationButton;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,11 +82,7 @@ public class MainActivity extends AppCompatActivity
 
         //Firebase Database
         db = FirebaseDatabase.getInstance();
-
-        DatabaseReference dbRef = db.getReference();
-        DatabaseReference locationsReference = db.getReference("Locations");
-
-
+        //DatabaseReference dbRef = db.getReference();
 
         //Map
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -91,22 +96,46 @@ public class MainActivity extends AppCompatActivity
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
-
+        //mAuth.getCurrentUser().getDisplayName();
         //updateUI(currentUser);
     }
 
     private void loadMarkers () {
 
-        //load data from DB
-        //DatabaseReference myRef = db.getReference("Locations");
+        //Crea datos para la base (lo mude al menú de arriba a la derecha)
+        //new CreateData();
 
-        //myRef
+        //Carga datos de la base
+        DatabaseReference myRef = db.getReference("Establecimientos");
+
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                Object value = dataSnapshot.getValue();
+                String a = "a";
+                HashMap<String, Establecimiento> estab = (HashMap<String, Establecimiento>) value;
+
+                //ArrayList<Establecimiento> estab = (ArrayList<Establecimiento>) value;
+                //dataSnapshot.getKey()
+                String b = "b";
+                //Establecimiento es = (Establecimiento) estab.get();
+                //Log.d(TAG, "Value is: " + value);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                //Log.w(TAG, "Failed to read value.", error.toException());
+            }
+        });
+
 
         //mMap
         IconGenerator icnGeneratorRG = new IconGenerator(this);
         IconGenerator icnGeneratorRP = new IconGenerator(this);
         IconGenerator icnGeneratorGG = new IconGenerator(this);
-
 
 
         final BitmapDrawable restaurantGreen = (BitmapDrawable) this.getResources()
@@ -205,6 +234,22 @@ public class MainActivity extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
+
+        /*
+        MenuItem searchItem = menu.findItem(R.id.action_search);
+        SearchView searchView =
+                (SearchView) MenuItemCompat.getActionView(searchItem);
+        */
+
+        //return super.onCreateOptionsMenu(menu);
+
+        // Associate searchable configuration with the SearchView
+        SearchManager searchManager = (SearchManager) getSystemService(this.SEARCH_SERVICE);
+        SearchView searchView =
+                (SearchView) menu.findItem(R.id.action_search).getActionView();
+        searchView.setSearchableInfo(
+                searchManager.getSearchableInfo(getComponentName()));
+
         return true;
     }
 
@@ -233,6 +278,13 @@ public class MainActivity extends AppCompatActivity
             finish();
             return true;
         }
+
+        if (id == R.id.action_resetdb) {
+            new CreateData();
+            return true;
+        }
+
+
 
         return super.onOptionsItemSelected(item);
     }

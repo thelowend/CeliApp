@@ -59,4 +59,9 @@
     <string name="sign_in">Sign In</string>
     <string name="create_account">Create Account</string>
 
+    <string name="action_search">Buscar</string>
+
+    <string name="action_resetdb">Reset DB</string>
+
+
 </resources>
