@@ -1,4 +1,4 @@
-package celiacos.seminarioii.prototipo.google.com.celiapp.entities;
+package celiacos.seminarioii.prototipo.google.com.celiapp.establecimiento.entities;
 
 import android.graphics.drawable.BitmapDrawable;
 
