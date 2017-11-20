@@ -17,13 +17,17 @@ public class ChooserActivity extends AppCompatActivity implements AdapterView.On
     private static final Class[] CLASSES = new Class[]{
             MainActivity.class,
             LoginActivity.class,
-            SplashScreen.class
+            SplashScreen.class,
+            AgregarReviewActivity.class,
+            ReviewActivity.class
     };
 
     private static final int[] DESCRIPTION_IDS = new int[] {
             R.string.desc_main_activity,
             R.string.desc_login_activity,
-            R.string.desc_splashscreen_activity
+            R.string.desc_splashscreen_activity,
+            R.string.agregar_review_activity,
+            R.string.review_activity
     };
 
     @Override

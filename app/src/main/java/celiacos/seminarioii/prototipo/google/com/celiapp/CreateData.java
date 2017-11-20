@@ -5,6 +5,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
+import celiacos.seminarioii.prototipo.google.com.celiapp.establecimiento.entities.Establecimiento;
+
 /**
  * Created by Diego on 19/11/2017.
  */
