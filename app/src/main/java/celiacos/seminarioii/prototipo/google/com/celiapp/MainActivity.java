@@ -114,12 +114,12 @@ public class MainActivity extends AppCompatActivity
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
                 Object value = dataSnapshot.getValue();
-                String a = "a";
+                //String a = "a";
                 HashMap<String, Establecimiento> estab = (HashMap<String, Establecimiento>) value;
 
                 //ArrayList<Establecimiento> estab = (ArrayList<Establecimiento>) value;
                 //dataSnapshot.getKey()
-                String b = "b";
+                //String b = "b";
                 //Establecimiento es = (Establecimiento) estab.get();
                 //Log.d(TAG, "Value is: " + value);
             }
