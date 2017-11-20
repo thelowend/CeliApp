@@ -1,14 +1,13 @@
-package celiacos.seminarioii.prototipo.google.com.celiapp;
-
-import android.graphics.drawable.BitmapDrawable;
+package celiacos.seminarioii.prototipo.google.com.celiapp.establecimiento.entities;
 
 import com.google.android.gms.maps.model.LatLng;
+import com.google.firebase.database.DataSnapshot;
 
 import java.util.ArrayList;
 import java.util.Random;
 
 public class Establecimiento {
-    private int establecimientoID;
+    private long establecimientoID;
     private String nombre;
     private String descripcion;
     private String tipo;
@@ -20,16 +19,26 @@ public class Establecimiento {
     //private BitmapDrawable icon;
 
     //Constructor
-    @SuppressWarnings("unused")
     public Establecimiento() {
         setEstablecimientoID();
         reviews = new ArrayList<Integer>();
     }
+    public Establecimiento(DataSnapshot dataSnapshot) {
+        establecimientoID = (long) dataSnapshot.child("establecimientoID").getValue();
+        nombre = (String) dataSnapshot.child("nombre").getValue();
+        descripcion = (String) dataSnapshot.child("descripcion").getValue();
+        tipo = (String) dataSnapshot.child("tipo").getValue();
+        direccion = (String) dataSnapshot.child("direccion").getValue();
+        fotoUrl = (String) dataSnapshot.child("fotoUrl").getValue();
+        lat = (double) dataSnapshot.child("location").child("latitude").getValue();
+        lon = (double) dataSnapshot.child("location").child("longitude").getValue();
+    }
 
     private void setEstablecimientoID() {
         Random randomNumberGenerator = new Random();
-        establecimientoID = randomNumberGenerator.nextInt(1000000);
+        establecimientoID = (long) randomNumberGenerator.nextInt(1000000);
     }
+
     public void setNombre(String nom){
         nombre = nom;
     }
@@ -54,7 +63,7 @@ public class Establecimiento {
     }
 
     //Getters
-    public int getEstablecimientoID(){
+    public long getEstablecimientoID(){
         return establecimientoID;
     }
     public String getNombre(){
@@ -78,13 +87,5 @@ public class Establecimiento {
     public ArrayList<Integer> getReviews(){
         return reviews;
     }
-
-    /*
-    public BitmapDrawable getIcon(){
-
-        (BitmapDrawable) getResources()
-                .getDrawable(R.mipmap.ic_restaurant_green);
-    }
-    */
 
 }
