@@ -51,6 +51,11 @@ public class Utils {
         return icnGenerator.makeIcon();
     }
 
+    private void pushAndSaveKey(Establecimiento establecimiento, DatabaseReference dbRef){
+        establecimiento.setEstablecimientoID(dbRef.getKey());
+        dbRef.setValue(establecimiento);
+    }
+
     private void createEstablecimientos() {
         DatabaseReference dbRef = db.getReference("Establecimientos");
 
@@ -64,7 +69,8 @@ public class Utils {
         uade.setDireccion("Lima 717");
         uade.setFotoUrl("https://www.uade.edu.ar/Dinamico/Themes/Default/img/uade-redes.jpg");
         uade.setLocation(-34.616877,-58.381783);
-        dbRef.push().setValue(uade);
+
+        pushAndSaveKey(uade, dbRef.push());
 
         Establecimiento cid = new Establecimiento();
         cid.setNombre("Cid Campeador");
@@ -73,7 +79,7 @@ public class Utils {
         cid.setDireccion("Cid Campeador");
         cid.setFotoUrl("http://www.endlessmile.com/images/201105/200408D63b.jpg");
         cid.setLocation(-34.607568, -58.445721);
-        dbRef.push().setValue(cid);
+        pushAndSaveKey(cid, dbRef.push());
 
         Establecimiento hotelDauria = new Establecimiento();
         hotelDauria.setNombre("Hotel D'auria");
@@ -82,7 +88,7 @@ public class Utils {
         hotelDauria.setDireccion("Calle falsa 123");
         hotelDauria.setFotoUrl("http://www.endlessmile.com/images/201105/200408D63b.jpg");
         hotelDauria.setLocation(-0.43, 0.43);
-        dbRef.push().setValue(hotelDauria);
+        pushAndSaveKey(hotelDauria, dbRef.push());
 
         Establecimiento random1 = new Establecimiento();
         random1.setNombre("Restaurant Random 1");
@@ -91,7 +97,7 @@ public class Utils {
         random1.setDireccion("Dirección Random 1");
         random1.setFotoUrl("https://www.uade.edu.ar/Dinamico/Themes/Default/img/uade-redes.jpg");
         random1.setLocation(-34.614825,-58.381750);
-        dbRef.push().setValue(random1);
+        pushAndSaveKey(random1, dbRef.push());
 
         Establecimiento random2 = new Establecimiento();
         random2.setNombre("Restaurant Random 2");
@@ -100,17 +106,16 @@ public class Utils {
         random2.setDireccion("Dirección Random 2");
         random2.setFotoUrl("http://www.endlessmile.com/images/201105/200408D63b.jpg");
         random2.setLocation(-34.617774, -58.385140);
-        dbRef.push().setValue(random2);
+        pushAndSaveKey(random2, dbRef.push());
 
         Establecimiento random3 = new Establecimiento();
-        random2.setNombre("Restaurant Random 3");
-        random2.setDescripcion("Descripción Restaurant Random 3");
-        random2.setTipo("restaurant-celiaco");
-        random2.setDireccion("Dirección Random 3");
-        random2.setFotoUrl("http://www.endlessmile.com/images/201105/200408D63b.jpg");
-        random2.setLocation(-34.615011, -58.376750);
-        dbRef.push().setValue(random2);
-
+        random3.setNombre("Restaurant Random 3");
+        random3.setDescripcion("Descripción Restaurant Random 3");
+        random3.setTipo("restaurant-celiaco");
+        random3.setDireccion("Dirección Random 3");
+        random3.setFotoUrl("http://www.endlessmile.com/images/201105/200408D63b.jpg");
+        random3.setLocation(-34.615011, -58.376750);
+        pushAndSaveKey(random3, dbRef.push());
     }
 
     public void createDbData () {
