@@ -15,7 +15,7 @@ public class UserReview {
     public UserReview() {
     }
 
-    public UserReview(String establecimientoId, List<UserReviewQuestion> questionsReviews, String comentario, String userId, String fecha, String puntaje) {
+    public UserReview(String userReviewId, List<UserReviewQuestion> questionsReviews, String comentario, String userId, String fecha, String puntaje) {
         this.establecimientoId = establecimientoId;
         this.questionsReviews = questionsReviews;
         this.comentario = comentario;

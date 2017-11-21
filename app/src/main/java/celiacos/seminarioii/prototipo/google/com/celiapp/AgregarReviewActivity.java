@@ -64,11 +64,12 @@ public class AgregarReviewActivity extends AppCompatActivity {
         pregunta = findViewById(R.id.pregunta);
         ratingBar = findViewById(R.id.ratingBar);
         boton_finalizar = findViewById(R.id.boton_finalizar);
-        TextView establecimiento = findViewById(R.id.establecimiento);
+        TextView establecimientoNombre = findViewById(R.id.establecimiento);
 
         if (getIntent().getExtras() != null) {
-            establecimiento.setText((String) getIntent().getExtras().getSerializable("establecimiento"));
+            establecimientoNombre.setText((String) getIntent().getExtras().getSerializable("establecimientoNombre"));
             establecimientoId = (String) getIntent().getExtras().getSerializable("establecimientoId");
+
         }
         comentario.setVisibility(View.INVISIBLE);
         boton_finalizar.setVisibility(View.INVISIBLE);
@@ -118,19 +119,19 @@ public class AgregarReviewActivity extends AppCompatActivity {
     public void finish(View view){
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("userReviews");
+        DatabaseReference myRef = database.getReference("Establecimientos").child(establecimientoId).child("userReviews");
         mAuth = FirebaseAuth.getInstance();
-
 
         UserReview userReview = new UserReview();
         userReview.setComentario(comentario.getText().toString());
         userReview.setEstablecimientoId(establecimientoId);
         userReview.setPuntaje(String.valueOf(promedio / userReviewQuestions.size()));
-        userReview.setUserId(mAuth.getCurrentUser().getEmail());
+        if(mAuth != null && mAuth.getCurrentUser() != null)
+            userReview.setUserId(mAuth.getCurrentUser().getEmail());
         userReview.setQuestionsReviews(userReviewQuestions);
         userReview.setFecha(Calendar.getInstance().getTime().toString());
 
-        myRef.child(String.valueOf(userReview.getEstablecimientoId())).push().setValue(userReview);
+        myRef.push().setValue(userReview);
 
         Log.i("Creando user review", userReview.toString());
 
@@ -141,7 +142,7 @@ public class AgregarReviewActivity extends AppCompatActivity {
 
     public void rateNo(View view){
         float puntaje;
-        if(reviews.get(contador).getTipo() == TiposOpciones.SINO)
+        if(reviews.get(contador-1).getTipo() == TiposOpciones.SINO)
             puntaje = 1;
         else
             puntaje = 5;
@@ -154,7 +155,7 @@ public class AgregarReviewActivity extends AppCompatActivity {
 
     public void rateSi(View view){
         float puntaje;
-        if(reviews.get(contador).getTipo() == TiposOpciones.SINO)
+        if(reviews.get(contador-1).getTipo() == TiposOpciones.SINO)
             puntaje = 5;
         else
             puntaje = 1;
