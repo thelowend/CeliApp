@@ -121,8 +121,12 @@ public class MainActivity extends AppCompatActivity
                     establecimientos.add(es);
 
                     //Añade el marcador al mapa
-                    mMap.addMarker(new MarkerOptions().position(es.getLocation()).title(es.getNombre()).snippet(es.getDescripcion())
+                    Marker marker = mMap.addMarker(new MarkerOptions().position(es.getLocation()).title(es.getNombre()).snippet(es.getDescripcion())
                             .icon(BitmapDescriptorFactory.fromBitmap( Utils.getInstance().getIcon(es.getTipo(), context) )).anchor(0.5f, 0.6f));
+
+                    //Guardo el establecimiento en el marcador
+                    marker.setTag(es);
+
 
                 }
             }
@@ -180,10 +184,18 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onInfoWindowClick(Marker marker) {
+        /*
         Toast.makeText(this, "Info window clicked",
                 Toast.LENGTH_SHORT).show();
+        */
 
-        //TODO:GOTORESTAURANTPAGE
+        Establecimiento markerEs = (Establecimiento) marker.getTag();
+
+        Intent intent = new Intent(getApplicationContext(), EstablecimientoActivity.class);
+        Bundle b = new Bundle();
+        b.putSerializable("ESTABLECIMIENTO", markerEs);
+        intent.putExtras(b);
+        startActivity(intent);
     }
 
 

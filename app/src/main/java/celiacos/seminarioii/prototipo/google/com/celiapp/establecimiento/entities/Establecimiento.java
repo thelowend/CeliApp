@@ -3,10 +3,11 @@ package celiacos.seminarioii.prototipo.google.com.celiapp.establecimiento.entiti
 import com.google.android.gms.maps.model.LatLng;
 import com.google.firebase.database.DataSnapshot;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Establecimiento {
+public class Establecimiento implements Serializable {
     private long establecimientoID;
     private String nombre;
     private String descripcion;

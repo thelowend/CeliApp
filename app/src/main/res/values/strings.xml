@@ -72,4 +72,12 @@
     <string name="title_activity_agregar_review">AgregarReviewActivity</string>
 
 
+    <!-- Establecimiento Activity -->
+    <string name="title_activity_establecimiento">Establecimiento</string>
+    <string name="tab_info">Información</string>
+    <string name="tab_comidas">Comidas</string>
+    <string name="tab_opiniones">Opiniones</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+
+
 </resources>
