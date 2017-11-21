@@ -5,11 +5,10 @@ import com.google.firebase.database.DataSnapshot;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Random;
 
 import celiacos.seminarioii.prototipo.google.com.celiapp.reviews.entitites.UserReview;
 
-public class Establecimiento {
+public class Establecimiento implements Serializable {
     private String establecimientoID;
     private String nombre;
     private String descripcion;
@@ -19,7 +18,6 @@ public class Establecimiento {
     private double lat;
     private double lon;
     private ArrayList<UserReview> reviews = new ArrayList<>();
-    //private BitmapDrawable icon;
 
     //Constructor
     public Establecimiento() {
