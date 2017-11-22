@@ -23,7 +23,6 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-import celiacos.seminarioii.prototipo.google.com.celiapp.establecimiento.entities.Establecimiento;
 import celiacos.seminarioii.prototipo.google.com.celiapp.reviews.AdapterReview;
 import celiacos.seminarioii.prototipo.google.com.celiapp.reviews.entitites.UserReview;
 
@@ -60,9 +59,9 @@ public class ReviewActivity extends AppCompatActivity {
             }
 
             userReviews = findViewById(R.id.userReviews);
-            ratingGral = findViewById(R.id.ratingGral);
-            nombreResto = findViewById(R.id.nombreResto);
-            cantidadReviews = findViewById(R.id.cantidad);
+            ratingGral = findViewById(R.id.rtgGeneral);
+            nombreResto = findViewById(R.id.txtNombreResto);
+            cantidadReviews = findViewById(R.id.txtCantidadReviews);
 
             nombreResto.setText(establecimientoNombre);
 

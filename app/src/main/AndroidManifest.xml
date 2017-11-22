@@ -65,7 +65,11 @@
             android:label="@string/title_activity_agregar_review"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ReviewActivity" />
-        <activity android:name=".UserProfileActivity"></activity>
+        <activity android:name=".UserProfileActivity" />
+        <activity
+            android:name=".EstablecimientoActivity"
+            android:label="@string/title_activity_establecimiento"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

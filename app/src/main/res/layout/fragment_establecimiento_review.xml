@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,7 +6,7 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/boton_siguiente"
+        android:id="@+id/btnSiguiente"
         android:layout_width="49dp"
         android:layout_height="49dp"
         android:layout_marginBottom="8dp"
@@ -41,7 +39,7 @@
         app:srcCompat="@drawable/pruebaresto" />
 
     <ListView
-        android:id="@+id/userReviews"
+        android:id="@+id/lstUserReviews"
         android:layout_width="384dp"
         android:layout_height="314dp"
         android:layout_marginTop="10dp"
@@ -86,4 +84,3 @@
         app:layout_constraintTop_toBottomOf="@+id/rtgGeneral" />
 
 </android.support.constraint.ConstraintLayout>
-

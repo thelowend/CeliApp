@@ -1,6 +1,8 @@
 package celiacos.seminarioii.prototipo.google.com.celiapp.reviews.entitites;
 
-public class UserReviewQuestion {
+import java.io.Serializable;
+
+public class UserReviewQuestion implements Serializable {
 
     public ReviewQuestion reviewQuestion;
     public float puntaje;
