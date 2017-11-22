@@ -10,21 +10,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="880f78ea-f5cd-46ae-a901-c84d45f1cc6a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/celiacos/seminarioii/prototipo/google/com/celiapp/fragments/PlaceholderFragment.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/celiacos/seminarioii/prototipo/google/com/celiapp/fragments/ReviewFragment.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_placeholder.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/celiacos/seminarioii/prototipo/google/com/celiapp/fragments/FoodsFragment.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/celiacos/seminarioii/prototipo/google/com/celiapp/fragments/InformationFragment.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_establecimiento_foods.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_establecimiento_information.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/celiacos/seminarioii/prototipo/google/com/celiapp/AgregarReviewActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/celiacos/seminarioii/prototipo/google/com/celiapp/AgregarReviewActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/celiacos/seminarioii/prototipo/google/com/celiapp/EstablecimientoActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/celiacos/seminarioii/prototipo/google/com/celiapp/EstablecimientoActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/celiacos/seminarioii/prototipo/google/com/celiapp/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/celiacos/seminarioii/prototipo/google/com/celiapp/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/celiacos/seminarioii/prototipo/google/com/celiapp/ReviewActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/celiacos/seminarioii/prototipo/google/com/celiapp/ReviewActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/celiacos/seminarioii/prototipo/google/com/celiapp/establecimiento/entities/Establecimiento.java" afterPath="$PROJECT_DIR$/app/src/main/java/celiacos/seminarioii/prototipo/google/com/celiapp/establecimiento/entities/Establecimiento.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/celiacos/seminarioii/prototipo/google/com/celiapp/reviews/entitites/ReviewQuestion.java" afterPath="$PROJECT_DIR$/app/src/main/java/celiacos/seminarioii/prototipo/google/com/celiapp/reviews/entitites/ReviewQuestion.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/celiacos/seminarioii/prototipo/google/com/celiapp/reviews/entitites/UserReview.java" afterPath="$PROJECT_DIR$/app/src/main/java/celiacos/seminarioii/prototipo/google/com/celiapp/reviews/entitites/UserReview.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/celiacos/seminarioii/prototipo/google/com/celiapp/reviews/entitites/UserReviewQuestion.java" afterPath="$PROJECT_DIR$/app/src/main/java/celiacos/seminarioii/prototipo/google/com/celiapp/reviews/entitites/UserReviewQuestion.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_review.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_review.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_establecimiento.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_establecimiento_review.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/celiacos/seminarioii/prototipo/google/com/celiapp/fragments/ReviewFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/celiacos/seminarioii/prototipo/google/com/celiapp/fragments/ReviewFragment.java" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -51,12 +43,19 @@
       <file leaf-file-name="EstablecimientoActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/celiacos/seminarioii/prototipo/google/com/celiapp/EstablecimientoActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="106" column="0" lean-forward="false" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
-              <folding>
-                <element signature="e#2307#2575#0" expanded="true" />
-                <element signature="e#2574#2575#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="114">
+              <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ReviewActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/celiacos/seminarioii/prototipo/google/com/celiapp/ReviewActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="86" column="0" lean-forward="false" selection-start-line="86" selection-start-column="0" selection-end-line="89" selection-end-column="87" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -64,8 +63,8 @@
       <file leaf-file-name="ReviewFragment.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/celiacos/seminarioii/prototipo/google/com/celiapp/fragments/ReviewFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="67" column="35" lean-forward="false" selection-start-line="67" selection-start-column="35" selection-end-line="67" selection-end-column="35" />
+            <state relative-caret-position="301">
+              <caret line="67" column="35" lean-forward="true" selection-start-line="67" selection-start-column="35" selection-end-line="67" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -73,23 +72,49 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Resources.java" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-26/android/content/res/Resources.java">
+      <file leaf-file-name="InformationFragment.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/celiacos/seminarioii/prototipo/google/com/celiapp/fragments/InformationFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="337" column="0" lean-forward="false" selection-start-line="337" selection-start-column="0" selection-end-line="337" selection-end-column="0" />
+            <state relative-caret-position="301">
+              <caret line="47" column="86" lean-forward="false" selection-start-line="47" selection-start-column="86" selection-end-line="47" selection-end-column="86" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ActivityThread.java" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-26/android/app/ActivityThread.java">
+      <file leaf-file-name="FoodsFragment.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/celiacos/seminarioii/prototipo/google/com/celiapp/fragments/FoodsFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="2895" column="40" lean-forward="false" selection-start-line="2895" selection-start-column="40" selection-end-line="2895" selection-end-column="40" />
+            <state relative-caret-position="301">
+              <caret line="47" column="80" lean-forward="false" selection-start-line="47" selection-start-column="80" selection-end-line="47" selection-end-column="80" />
               <folding />
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fragment_establecimiento_information.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_establecimiento_information.xml">
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" column="46" lean-forward="false" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="46" />
+              <folding />
+            </state>
+          </provider>
+          <provider selected="true" editor-type-id="android-designer2">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fragment_establecimiento_foods.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_establecimiento_foods.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="14" selection-end-column="46" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer2">
+            <state />
           </provider>
         </entry>
       </file>
@@ -129,42 +154,6 @@
                 <element signature="e#486#487#0" expanded="true" />
                 <element signature="e#523#524#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ReviewQuestion.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/celiacos/seminarioii/prototipo/google/com/celiapp/reviews/entitites/ReviewQuestion.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="318">
-              <caret line="32" column="34" lean-forward="false" selection-start-line="32" selection-start-column="25" selection-end-line="32" selection-end-column="34" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#761#762#0" expanded="true" />
-                <element signature="e#803#804#0" expanded="true" />
-                <element signature="e#841#842#0" expanded="true" />
-                <element signature="e#868#869#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TiposOpciones.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/celiacos/seminarioii/prototipo/google/com/celiapp/reviews/enums/TiposOpciones.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="4" lean-forward="false" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AgregarReviewActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/celiacos/seminarioii/prototipo/google/com/celiapp/AgregarReviewActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2873">
-              <caret line="195" column="90" lean-forward="false" selection-start-line="195" selection-start-column="90" selection-end-line="195" selection-end-column="90" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -1952,10 +1941,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/celiacos/seminarioii/prototipo/google/com/celiapp/Chooser.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_chooser.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/nav_header_main.xml" />
-        <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/ic_restaurant_pink.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/celiacos/seminarioii/prototipo/google/com/celiapp/BaseActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" />
@@ -1994,15 +1979,19 @@
         <option value="$PROJECT_DIR$/app/src/main/java/celiacos/seminarioii/prototipo/google/com/celiapp/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_establecimiento.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/celiacos/seminarioii/prototipo/google/com/celiapp/fragments/PlaceholderFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/celiacos/seminarioii/prototipo/google/com/celiapp/EstablecimientoActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_establecimiento_review.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/celiacos/seminarioii/prototipo/google/com/celiapp/reviews/AdapterReview.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/celiacos/seminarioii/prototipo/google/com/celiapp/establecimiento/entities/Establecimiento.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/celiacos/seminarioii/prototipo/google/com/celiapp/reviews/entitites/ReviewQuestion.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/celiacos/seminarioii/prototipo/google/com/celiapp/AgregarReviewActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/celiacos/seminarioii/prototipo/google/com/celiapp/fragments/ReviewFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/celiacos/seminarioii/prototipo/google/com/celiapp/reviews/entitites/UserReviewQuestion.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/celiacos/seminarioii/prototipo/google/com/celiapp/reviews/entitites/UserReview.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_establecimiento_foods.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_establecimiento_information.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/celiacos/seminarioii/prototipo/google/com/celiapp/fragments/InformationFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/celiacos/seminarioii/prototipo/google/com/celiapp/fragments/FoodsFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/celiacos/seminarioii/prototipo/google/com/celiapp/EstablecimientoActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/celiacos/seminarioii/prototipo/google/com/celiapp/fragments/ReviewFragment.java" />
       </list>
     </option>
   </component>
@@ -2419,23 +2408,26 @@
     <property name="SearchEverywhereHistoryKey" value="sdk manager&#9;ACTION&#9;WelcomeScreen.RunAndroidSdkManager&#10;sdk&#9;ACTION&#9;WelcomeScreen.RunAndroidSdkManager" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Documents\Facultad\2017-2\Seminario II\TP\CeliApp\app\src\main\res\layout" />
-      <recent name="D:\Documents\Facultad\2017-2\Seminario II\TP\CeliApp\app\src\main\res\drawable-v21" />
-      <recent name="D:\Documents\Facultad\2017-2\Seminario II\TP\CeliApp\app\src\main\res\drawable-v24" />
-    </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+    <key name="CreateClassDialog.RecentsKey">
       <recent name="celiacos.seminarioii.prototipo.google.com.celiapp" />
     </key>
     <key name="android.template.packageName">
       <recent name="celiacos.seminarioii.prototipo.google.com.celiapp" />
       <recent name="celiacos" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="celiacos.seminarioii.prototipo.google.com.celiapp" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Documents\Facultad\2017-2\Seminario II\TP\CeliApp\app\src\main\res\layout" />
+      <recent name="D:\Documents\Facultad\2017-2\Seminario II\TP\CeliApp\app\src\main\res\drawable-v21" />
+      <recent name="D:\Documents\Facultad\2017-2\Seminario II\TP\CeliApp\app\src\main\res\drawable-v24" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="celiacos.seminarioii.prototipo.google.com.celiapp.fragments" />
+    </key>
     <key name="android.template.parentActivityClass">
       <recent name="" />
-    </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="celiacos.seminarioii.prototipo.google.com.celiapp" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -2521,7 +2513,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1511310949183" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1511311889707" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -2569,7 +2561,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1511310949183" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1511311889707" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -2752,7 +2744,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1511310949186" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1511311889707" />
       </method>
     </configuration>
     <list size="1">
@@ -2803,7 +2795,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -2852,24 +2844,6 @@
           <properties />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/celiacos/seminarioii/prototipo/google/com/celiapp/EstablecimientoActivity.java</url>
-          <line>65</line>
-          <properties />
-          <option name="timeStamp" value="60" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/celiacos/seminarioii/prototipo/google/com/celiapp/EstablecimientoActivity.java</url>
-          <line>106</line>
-          <properties />
-          <option name="timeStamp" value="61" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/celiacos/seminarioii/prototipo/google/com/celiapp/EstablecimientoActivity.java</url>
-          <line>40</line>
-          <properties />
-          <option name="timeStamp" value="62" />
-        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
@@ -2879,31 +2853,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/celiacos/seminarioii/prototipo/google/com/celiapp/UserProfileActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="8" lean-forward="false" selection-start-line="0" selection-start-column="8" selection-end-line="0" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_user_profile.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-443">
-          <caret line="59" column="51" lean-forward="false" selection-start-line="59" selection-start-column="51" selection-end-line="59" selection-end-column="51" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/botonRedondo.xml" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/boton_redondo.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="8" lean-forward="false" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_agregar_review.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="186">
@@ -3173,16 +3122,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/celiacos/seminarioii/prototipo/google/com/celiapp/ReviewActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="74" column="0" lean-forward="false" selection-start-line="74" selection-start-column="0" selection-end-line="84" selection-end-column="21" />
-          <folding>
-            <element signature="e#880#910#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/celiacos/seminarioii/prototipo/google/com/celiapp/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="167">
@@ -3241,17 +3180,6 @@
         <state relative-caret-position="252">
           <caret line="2895" column="40" lean-forward="false" selection-start-line="2895" selection-start-column="40" selection-end-line="2895" selection-end-column="40" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/celiacos/seminarioii/prototipo/google/com/celiapp/EstablecimientoActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="106" column="0" lean-forward="false" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
-          <folding>
-            <element signature="e#2307#2575#0" expanded="true" />
-            <element signature="e#2574#2575#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3327,10 +3255,64 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/celiacos/seminarioii/prototipo/google/com/celiapp/fragments/ReviewFragment.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_establecimiento_foods.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="14" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_establecimiento_information.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="46" lean-forward="false" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/celiacos/seminarioii/prototipo/google/com/celiapp/fragments/InformationFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="47" column="86" lean-forward="false" selection-start-line="47" selection-start-column="86" selection-end-line="47" selection-end-column="86" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/celiacos/seminarioii/prototipo/google/com/celiapp/fragments/FoodsFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="47" column="80" lean-forward="false" selection-start-line="47" selection-start-column="80" selection-end-line="47" selection-end-column="80" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/celiacos/seminarioii/prototipo/google/com/celiapp/EstablecimientoActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/celiacos/seminarioii/prototipo/google/com/celiapp/ReviewActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
-          <caret line="67" column="35" lean-forward="false" selection-start-line="67" selection-start-column="35" selection-end-line="67" selection-end-column="35" />
+          <caret line="86" column="0" lean-forward="false" selection-start-line="86" selection-start-column="0" selection-end-line="89" selection-end-column="87" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/celiacos/seminarioii/prototipo/google/com/celiapp/fragments/ReviewFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="67" column="35" lean-forward="true" selection-start-line="67" selection-start-column="35" selection-end-line="67" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

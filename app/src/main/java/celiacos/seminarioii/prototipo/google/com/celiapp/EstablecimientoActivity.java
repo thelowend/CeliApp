@@ -20,6 +20,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import celiacos.seminarioii.prototipo.google.com.celiapp.establecimiento.entities.Establecimiento;
+import celiacos.seminarioii.prototipo.google.com.celiapp.fragments.FoodsFragment;
+import celiacos.seminarioii.prototipo.google.com.celiapp.fragments.InformationFragment;
 import celiacos.seminarioii.prototipo.google.com.celiapp.fragments.PlaceholderFragment;
 import celiacos.seminarioii.prototipo.google.com.celiapp.fragments.ReviewFragment;
 
@@ -104,9 +106,11 @@ public class EstablecimientoActivity extends AppCompatActivity {
 
             switch (position) {
                 case 0:
-                    return ReviewFragment.newInstance(mainEstablecimiento);
+                    return InformationFragment.newInstance(mainEstablecimiento);
                 case 1:
+                    return FoodsFragment.newInstance(mainEstablecimiento);
                 case 2:
+                    return ReviewFragment.newInstance(mainEstablecimiento);
                 default:
                     return PlaceholderFragment.newInstance(position + 1);
             }

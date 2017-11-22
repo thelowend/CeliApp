@@ -20,7 +20,7 @@ import celiacos.seminarioii.prototipo.google.com.celiapp.reviews.AdapterReview;
 import celiacos.seminarioii.prototipo.google.com.celiapp.reviews.entitites.UserReview;
 
 
-public class ReviewFragment extends Fragment {
+public class InformationFragment extends Fragment {
 
     RatingBar rtgGeneral;
     TextView txtNombreResto;
@@ -31,10 +31,10 @@ public class ReviewFragment extends Fragment {
 
     Establecimiento mainEstablecimiento;
 
-    public ReviewFragment() {}
+    public InformationFragment() {}
 
-    public static ReviewFragment newInstance(Establecimiento es) {
-        ReviewFragment fragment = new ReviewFragment();
+    public static InformationFragment newInstance(Establecimiento es) {
+        InformationFragment fragment = new InformationFragment();
 
         Bundle args = new Bundle();
         args.putSerializable("ESTABLECIMIENTO", es);
@@ -45,7 +45,7 @@ public class ReviewFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_establecimiento_review, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_establecimiento_information, container, false);
         return rootView;
     }
 
@@ -55,31 +55,7 @@ public class ReviewFragment extends Fragment {
 
         mainEstablecimiento = (Establecimiento) getArguments().getSerializable("ESTABLECIMIENTO");
 
-        lstUserReviews = getActivity().findViewById(R.id.lstUserReviews);
-        rtgGeneral = getActivity().findViewById(R.id.rtgGeneral);
-        txtNombreResto = getActivity().findViewById(R.id.txtNombreResto);
-        txtCantidadReviews = getActivity().findViewById(R.id.txtCantidadReviews);
-
-        ArrayList<UserReview> userReviewsList = mainEstablecimiento.getReviews();
-
-        ListAdapter adapter = new AdapterReview(this.getActivity(), userReviewsList);
-        lstUserReviews.setAdapter(adapter);
-
-        float puntajeSumatoria = 0;
-        int totalReviews = userReviewsList.size();
-        for (UserReview review: userReviewsList) {
-            puntajeSumatoria += Float.parseFloat(review.getPuntaje());
-        }
-
-        //Muestro datos
-        txtNombreResto.setText(mainEstablecimiento.getNombre());
-        if (userReviewsList.size() != 0) {
-            if(userReviewsList.size() == 1)
-                txtCantidadReviews.setText(String.valueOf(totalReviews) + " reseña");
-            else
-                txtCantidadReviews.setText(String.valueOf(totalReviews) + " reseñas");
-            rtgGeneral.setRating(puntajeSumatoria / userReviewsList.size());
-        }
+        //Cosas de la pantalla de información:
 
     }
 }
