@@ -2,11 +2,19 @@
 <resources>
     <color name="colorPrimary">#EE609E</color>
     <color name="colorPrimaryDark">#DC1C70</color>
-    <color name="colorAccent">#FBBBD7</color>
+    <color name="colorPrimaryAccent">#FBBBD7</color>
 
-    <color name="colorSecondary">#B8F663</color>
-    <color name="colorSecondaryDark">#95EC1E</color>
-    <color name="colorSecondaryAccent">#E2FDBD</color>
+    <color name="colorSecondary">#FF7E67</color>
+    <color name="colorSecondaryDark">#FF4320</color>
+    <color name="colorSecondaryAccent">#FFC8BE</color>
+
+    <color name="colorTertiary">#5BE188</color>
+    <color name="colorTertiaryDark">#19C152</color>
+    <color name="colorTertiaryAccent">#B9F8CF</color>
+
+    <color name="colorQuaternary">#B8F663</color>
+    <color name="colorQuaternaryDark">#95EC1E</color>
+    <color name="colorQuaternaryAccent">#E2FDBD</color>
 
     <color name="grey_100">#F5F5F5</color>
     <color name="grey_300">#E0E0E0</color>
