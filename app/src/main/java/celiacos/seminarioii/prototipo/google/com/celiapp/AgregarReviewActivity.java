@@ -48,7 +48,7 @@ public class AgregarReviewActivity extends AppCompatActivity {
     private EditText comentario;
     private List<ReviewQuestion> reviews = new ArrayList<>();
 
-    private List<UserReviewQuestion> userReviewQuestions = new ArrayList<>();
+    private ArrayList<UserReviewQuestion> userReviewQuestions = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -128,7 +128,7 @@ public class AgregarReviewActivity extends AppCompatActivity {
         userReview.setPuntaje(String.valueOf(promedio / userReviewQuestions.size()));
         if(mAuth != null && mAuth.getCurrentUser() != null)
             userReview.setUserId(mAuth.getCurrentUser().getEmail());
-        userReview.setQuestionsReviews(userReviewQuestions);
+        //userReview.setQuestionsReviews(userReviewQuestions);
         userReview.setFecha(Calendar.getInstance().getTime().toString());
 
         myRef.push().setValue(userReview);
@@ -175,18 +175,18 @@ public class AgregarReviewActivity extends AppCompatActivity {
     }
 
     private void getReviewsMock(){
-        Map<String, Integer> mapEstrella = new HashMap<>();
+        HashMap<String, Integer> mapEstrella = new HashMap<>();
         mapEstrella.put("1",1);
         mapEstrella.put("2",2);
         mapEstrella.put("3",3);
         mapEstrella.put("4",4);
         mapEstrella.put("5",5);
 
-        Map<String, Integer> mapSiNo = new HashMap<>();
+        HashMap<String, Integer> mapSiNo = new HashMap<>();
         mapSiNo.put("No",1);
         mapSiNo.put("Si",5);
 
-        Map<String, Integer> mapSiNoInvertido = new HashMap<>();
+        HashMap<String, Integer> mapSiNoInvertido = new HashMap<>();
         mapSiNo.put("No",5);
         mapSiNo.put("Si",1);
 

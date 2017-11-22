@@ -1,12 +1,13 @@
 package celiacos.seminarioii.prototipo.google.com.celiapp.reviews.entitites;
 
 
-import java.util.List;
+import java.io.Serializable;
+import java.util.ArrayList;
 
-public class UserReview {
+public class UserReview implements Serializable {
 
     private String establecimientoId;
-    private List<UserReviewQuestion> questionsReviews;
+    //private ArrayList<UserReviewQuestion> questionsReviews;
     private String comentario;
     private String userId;
     private String fecha;
@@ -15,9 +16,9 @@ public class UserReview {
     public UserReview() {
     }
 
-    public UserReview(String userReviewId, List<UserReviewQuestion> questionsReviews, String comentario, String userId, String fecha, String puntaje) {
+    public UserReview(String userReviewId, ArrayList<UserReviewQuestion> questionsReviews, String comentario, String userId, String fecha, String puntaje) {
         this.establecimientoId = establecimientoId;
-        this.questionsReviews = questionsReviews;
+        //this.questionsReviews = questionsReviews;
         this.comentario = comentario;
         this.userId = userId;
         this.fecha = fecha;
@@ -55,15 +56,15 @@ public class UserReview {
     public void setFecha(String fecha) {
         this.fecha = fecha;
     }
-
-    public List<UserReviewQuestion> getQuestionsReviews() {
+    /*
+    public ArrayList<UserReviewQuestion> getQuestionsReviews() {
         return questionsReviews;
     }
 
-    public void setQuestionsReviews(List<UserReviewQuestion> questionsReviews) {
+    public void setQuestionsReviews(ArrayList<UserReviewQuestion> questionsReviews) {
         this.questionsReviews = questionsReviews;
     }
-
+    */
     public String getPuntaje() {
         return puntaje;
     }

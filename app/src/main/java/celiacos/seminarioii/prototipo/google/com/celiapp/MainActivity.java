@@ -184,17 +184,18 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onInfoWindowClick(Marker marker) {
-        /*
-        Toast.makeText(this, "Info window clicked",
-                Toast.LENGTH_SHORT).show();
-        */
-
+        //Obtengo el establecimiento definido en el Marker que se clickeó
         Establecimiento markerEs = (Establecimiento) marker.getTag();
 
+        //Llamo al intent de la landing del establecimiento
         Intent intent = new Intent(getApplicationContext(), EstablecimientoActivity.class);
-        Bundle b = new Bundle();
-        b.putSerializable("ESTABLECIMIENTO", markerEs);
-        intent.putExtras(b);
+        //Creo un bundle para pasar datos de una Activity a otra
+        Bundle bundle = new Bundle();
+        //Guardo el Establecimiento en el bundle como Serializable
+        bundle.putSerializable("ESTABLECIMIENTO", markerEs);
+        //Guardo el bundle en el intent que se va a abrir
+        intent.putExtras(bundle);
+        //Abro el intent
         startActivity(intent);
     }
 

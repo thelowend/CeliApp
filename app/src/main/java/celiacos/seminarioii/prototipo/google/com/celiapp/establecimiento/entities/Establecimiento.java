@@ -32,6 +32,17 @@ public class Establecimiento implements Serializable {
         fotoUrl = (String) dataSnapshot.child("fotoUrl").getValue();
         lat = (double) dataSnapshot.child("location").child("latitude").getValue();
         lon = (double) dataSnapshot.child("location").child("longitude").getValue();
+
+        for (final DataSnapshot child :  dataSnapshot.child("userReviews").getChildren()) {
+            UserReview userReview = new UserReview();
+            userReview.setEstablecimientoId((String) child.child("establecimientoId").getValue());
+            userReview.setComentario((String) child.child("comentario").getValue());
+            userReview.setFecha((String) child.child("fecha").getValue());
+            userReview.setUserId((String) child.child("userId").getValue());
+            userReview.setPuntaje((String) child.child("puntaje").getValue());
+            reviews.add(userReview);
+        }
+
     }
 
     public void setNombre(String nom){
