@@ -21,8 +21,6 @@ import celiacos.seminarioii.prototipo.google.com.celiapp.reviews.entitites.UserR
 
 public class InformationFragment extends Fragment {
 
-    ListView lstUserReviews;
-
     Establecimiento mainEstablecimiento;
 
     public InformationFragment() {}
@@ -49,6 +47,8 @@ public class InformationFragment extends Fragment {
 
         mainEstablecimiento = (Establecimiento) getArguments().getSerializable("ESTABLECIMIENTO");
 
+        TextView txtRating = getActivity().findViewById(R.id.txtRating);
+
         TextView txtDireccion = getActivity().findViewById(R.id.txtDireccion);
         TextView txtHorario = getActivity().findViewById(R.id.txtHorario);
         TextView txtTelefono = getActivity().findViewById(R.id.txtTelefono);
@@ -56,16 +56,16 @@ public class InformationFragment extends Fragment {
         RatingBar rtgGeneral = getActivity().findViewById(R.id.rtgGeneral);
 
         ArrayList<UserReview> userReviewsList = mainEstablecimiento.getReviews();
-        ListAdapter adapter = new AdapterReview(this.getActivity(), userReviewsList);
-        lstUserReviews.setAdapter(adapter);
 
         float puntajeSumatoria = 0;
         int totalReviews = userReviewsList.size();
         for (UserReview review: userReviewsList) {
             puntajeSumatoria += Float.parseFloat(review.getPuntaje());
         }
+        float result = puntajeSumatoria / userReviewsList.size();
 
         //Muestro datos
+        txtRating.setText(String.format("%.01f", result) + " / 5");
         txtDireccion.setText(mainEstablecimiento.getDireccion());
         txtHorario.setText(mainEstablecimiento.getHorario());
         txtTelefono.setText(mainEstablecimiento.getTelefono());

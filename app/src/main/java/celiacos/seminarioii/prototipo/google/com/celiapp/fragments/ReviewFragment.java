@@ -22,13 +22,6 @@ import celiacos.seminarioii.prototipo.google.com.celiapp.reviews.entitites.UserR
 
 public class ReviewFragment extends Fragment {
 
-    RatingBar rtgGeneral;
-    TextView txtNombreResto;
-    TextView txtCantidadReviews;
-    ListView lstUserReviews;
-    ImageView imgView;
-    Button btnSiguiente;
-
     Establecimiento mainEstablecimiento;
 
     public ReviewFragment() {}
@@ -55,31 +48,12 @@ public class ReviewFragment extends Fragment {
 
         mainEstablecimiento = (Establecimiento) getArguments().getSerializable("ESTABLECIMIENTO");
 
-        lstUserReviews = getActivity().findViewById(R.id.lstUserReviews);
-        rtgGeneral = getActivity().findViewById(R.id.rtgGeneral);
-        txtNombreResto = getActivity().findViewById(R.id.txtNombreResto);
-        txtCantidadReviews = getActivity().findViewById(R.id.txtCantidadReviews);
-
         ArrayList<UserReview> userReviewsList = mainEstablecimiento.getReviews();
+        ListView lstUserReviews = (ListView) getActivity().findViewById(R.id.lstUserReviews);
 
         ListAdapter adapter = new AdapterReview(this.getActivity(), userReviewsList);
         lstUserReviews.setAdapter(adapter);
 
-        float puntajeSumatoria = 0;
-        int totalReviews = userReviewsList.size();
-        for (UserReview review: userReviewsList) {
-            puntajeSumatoria += Float.parseFloat(review.getPuntaje());
-        }
-
-        //Muestro datos
-        txtNombreResto.setText(mainEstablecimiento.getNombre());
-        if (userReviewsList.size() != 0) {
-            if(userReviewsList.size() == 1)
-                txtCantidadReviews.setText(String.valueOf(totalReviews) + " reseña");
-            else
-                txtCantidadReviews.setText(String.valueOf(totalReviews) + " reseñas");
-            rtgGeneral.setRating(puntajeSumatoria / userReviewsList.size());
-        }
 
     }
 }

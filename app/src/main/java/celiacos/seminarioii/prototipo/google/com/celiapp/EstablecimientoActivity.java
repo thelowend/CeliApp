@@ -61,15 +61,6 @@ public class EstablecimientoActivity extends AppCompatActivity {
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
         //Obtengo Establecimiento del bundle para cargar los datos
         mainEstablecimiento = (Establecimiento) this.getIntent().getSerializableExtra("ESTABLECIMIENTO");
 
@@ -135,7 +126,7 @@ public class EstablecimientoActivity extends AppCompatActivity {
                 case 2:
                     return ReviewFragment.newInstance(mainEstablecimiento);
                 default:
-                    return PlaceholderFragment.newInstance(position + 1);
+                    return InformationFragment.newInstance(mainEstablecimiento);
             }
         }
 

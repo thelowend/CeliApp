@@ -22,13 +22,6 @@ import celiacos.seminarioii.prototipo.google.com.celiapp.reviews.entitites.UserR
 
 public class FoodsFragment extends Fragment {
 
-    RatingBar rtgGeneral;
-    TextView txtNombreResto;
-    TextView txtCantidadReviews;
-    ListView lstUserReviews;
-    ImageView imgView;
-    Button btnSiguiente;
-
     Establecimiento mainEstablecimiento;
 
     public FoodsFragment() {}
