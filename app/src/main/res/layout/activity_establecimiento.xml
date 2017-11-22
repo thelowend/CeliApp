@@ -29,8 +29,92 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_height="150dp"
+            android:layout_weight="1"
+            android:elevation="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:elevation="100dp"
+                android:gravity="top"
+                android:orientation="vertical"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp">
+
+                <TextView
+                    android:id="@+id/txtNombreEstablecimiento"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:shadowColor="@color/colorPrimaryDark"
+                    android:text="TextView"
+                    android:textAlignment="viewStart"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtDescripcionEstablecimiento"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:shadowColor="@color/colorPrimaryDark"
+                    android:text="TextView"
+                    android:textAlignment="viewStart"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="24sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:elevation="100dp"
+                android:gravity="bottom"
+                android:orientation="vertical"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <RatingBar
+                        android:id="@+id/rtgEstablecimiento"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:isIndicator="true" />
+
+                    <TextView
+                        android:id="@+id/txtReseñaEstablecimiento"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:alpha="1"
+                        android:text="TextView"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="20sp"
+                        android:textStyle="italic"
+                        android:visibility="visible" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:elevation="100dp"
+                android:padding="10dp">
+
+            </RelativeLayout>
 
             <ImageView
                 android:id="@+id/imgEstablecimiento"
@@ -40,24 +124,6 @@
                 android:scaleType="centerCrop"
                 app:srcCompat="@drawable/pruebaresto" />
 
-            <TextView
-                android:id="@+id/txtNombreEstablecimiento"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_weight="1"
-                android:text="TextView"
-                android:textAlignment="center"
-                android:textColor="@android:color/background_light"
-                android:textSize="30sp" />
-
-            <RatingBar
-                android:id="@+id/rtgEstablecimiento"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/imgEstablecimiento" />
         </RelativeLayout>
 
         <android.support.design.widget.TabLayout

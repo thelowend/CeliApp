@@ -16,6 +16,9 @@
     <color name="colorQuaternaryDark">#95EC1E</color>
     <color name="colorQuaternaryAccent">#E2FDBD</color>
 
+    <color name="colorWhite">#FEFEFE</color>
+    <color name="colorBlack">#111111</color>
+
     <color name="grey_100">#F5F5F5</color>
     <color name="grey_300">#E0E0E0</color>
 </resources>

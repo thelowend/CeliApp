@@ -81,5 +81,7 @@
     <string name="tab_opiniones">Opiniones</string>
     <string name="section_format">Hello World from section: %1$d</string>
 
+    <string name="reseñas_no">No hay reseñas todavía.</string>
+    <string name="reseñas_seelprimero">¡Sé el primero!</string>
 
 </resources>

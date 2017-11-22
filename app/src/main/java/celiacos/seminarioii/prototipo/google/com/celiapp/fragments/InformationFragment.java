@@ -65,12 +65,20 @@ public class InformationFragment extends Fragment {
         float result = puntajeSumatoria / userReviewsList.size();
 
         //Muestro datos
-        txtRating.setText(String.format("%.01f", result) + " / 5");
         txtDireccion.setText(mainEstablecimiento.getDireccion());
         txtHorario.setText(mainEstablecimiento.getHorario());
         txtTelefono.setText(mainEstablecimiento.getTelefono());
 
-        rtgGeneral.setRating(result);
+        if(Float.isNaN(result)) {
+            txtRating.setText(R.string.reseñas_no);
+            rtgGeneral.setVisibility(View.GONE);
+            rtgGeneral.setRating(result);
+        } else {
+            rtgGeneral.setVisibility(View.VISIBLE);
+            txtRating.setText(String.format("%.01f", result) + " / 5");
+        }
+
+
 
         ImageButton imgbtnEscribirOpinion = this.getActivity().findViewById(R.id.imgbtnEscribirOpinion);
         //imgbtnEscribirOpinion

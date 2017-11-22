@@ -65,13 +65,18 @@ public class EstablecimientoActivity extends AppCompatActivity {
         mainEstablecimiento = (Establecimiento) this.getIntent().getSerializableExtra("ESTABLECIMIENTO");
 
         TextView txtNombre = this.findViewById(R.id.txtNombreEstablecimiento);
+        TextView txtDescripcion = this.findViewById(R.id.txtDescripcionEstablecimiento);
         RatingBar rtgEstablecimiento = this.findViewById(R.id.rtgEstablecimiento);
+        TextView txtReseñaEstablecimiento = this.findViewById(R.id.txtReseñaEstablecimiento);
         ArrayList<UserReview> userReviewsList = mainEstablecimiento.getReviews();
 
         //Muestro datos del Establecimiento:
         txtNombre.setText(mainEstablecimiento.getNombre());
+        txtDescripcion.setText(mainEstablecimiento.getDescripcion());
+        txtReseñaEstablecimiento.setText(R.string.reseñas_no + " " + R.string.reseñas_seelprimero);
 
         int totalReviews = userReviewsList.size();
+
         if (totalReviews > 0) {
             float puntajeSumatoria = 0;
             for (UserReview review: userReviewsList) {
@@ -80,6 +85,10 @@ public class EstablecimientoActivity extends AppCompatActivity {
             float result = puntajeSumatoria / totalReviews;
 
             rtgEstablecimiento.setRating(result);
+            txtReseñaEstablecimiento.setVisibility(View.GONE);
+        } else {
+            rtgEstablecimiento.setVisibility(View.GONE);
+            txtReseñaEstablecimiento.setVisibility(View.VISIBLE);
         }
 
     }
