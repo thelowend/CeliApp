@@ -1,6 +1,5 @@
 package celiacos.seminarioii.prototipo.google.com.celiapp;
 
-import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -9,6 +8,8 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.util.Log;
 import android.view.View;
@@ -23,10 +24,12 @@ import android.view.MenuItem;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.auth.FirebaseAuth;
@@ -41,9 +44,12 @@ import java.util.ArrayList;
 
 import celiacos.seminarioii.prototipo.google.com.celiapp.Utils.Utils;
 import celiacos.seminarioii.prototipo.google.com.celiapp.establecimiento.entities.Establecimiento;
+import celiacos.seminarioii.prototipo.google.com.celiapp.search.SearchListAdapter;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, GoogleMap.OnInfoWindowClickListener, OnMapReadyCallback {
+        implements NavigationView.OnNavigationItemSelectedListener,
+        GoogleMap.OnInfoWindowClickListener, OnMapReadyCallback,
+        SearchListAdapter.SearchListAdapterListener {
 
     private FirebaseDatabase db;
 
@@ -54,9 +60,14 @@ public class MainActivity extends AppCompatActivity
     private Location usrLocation;
     private View mapView;
     private View locationButton;
+    private RecyclerView searchRecyclerView;
+
+    private SearchListAdapter mSearchAdapter;
 
     //Establecimientos ArrayList iniciación
     private ArrayList<Establecimiento> establecimientos = new ArrayList<>();
+
+    //private ArrayList<Marker> mapMarkers = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,19 +76,21 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        //getSupportActionBar().setHomeAsUpIndicator(R.mipmap.ic_launcher);
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-        toggle.setHomeAsUpIndicator(R.mipmap.ic_launcher);
 
         toolbar.setNavigationIcon(R.mipmap.ic_launcher);
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        mSearchAdapter = new SearchListAdapter(new ArrayList<Establecimiento>(), this, this);
+        searchRecyclerView = findViewById(R.id.recycler_search);
+        searchRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        searchRecyclerView.setAdapter(mSearchAdapter);
 
         //Firebase Auth
         mAuth = FirebaseAuth.getInstance();
@@ -126,6 +139,9 @@ public class MainActivity extends AppCompatActivity
 
                     //Guardo el establecimiento en el marcador
                     marker.setTag(es);
+
+                    //Guardo los markers en memoria
+                    //mapMarkers.add(marker);
 
 
                 }
@@ -212,23 +228,61 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
+
         getMenuInflater().inflate(R.menu.main, menu);
 
-        /*
-        MenuItem searchItem = menu.findItem(R.id.action_search);
-        SearchView searchView =
-                (SearchView) MenuItemCompat.getActionView(searchItem);
-        */
-
-        //return super.onCreateOptionsMenu(menu);
-
-        // Associate searchable configuration with the SearchView
-        SearchManager searchManager = (SearchManager) getSystemService(this.SEARCH_SERVICE);
         SearchView searchView =
                 (SearchView) menu.findItem(R.id.action_search).getActionView();
-        searchView.setSearchableInfo(
-                searchManager.getSearchableInfo(getComponentName()));
+
+        MenuItem searchMenuItem = (MenuItem) menu.findItem(R.id.action_search);
+        searchMenuItem.setOnActionExpandListener(new MenuItem.OnActionExpandListener() {
+            @Override
+            public boolean onMenuItemActionExpand(MenuItem item) {
+                searchRecyclerView.setVisibility(View.VISIBLE);
+                return true;
+            }
+
+            @Override
+            public boolean onMenuItemActionCollapse(MenuItem item) {
+                searchRecyclerView.setVisibility(View.GONE);
+                return true;
+            }
+        });
+
+        searchView.setOnCloseListener(new SearchView.OnCloseListener() {
+            @Override
+            public boolean onClose() {
+                searchRecyclerView.setVisibility(View.GONE);
+                return false;
+            }
+        });
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                searchRecyclerView.setVisibility(View.VISIBLE);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String filterText) {
+
+                if(filterText.isEmpty()) {
+                    mSearchAdapter.setEstablecimientos(establecimientos);
+                } else {
+                    ArrayList<Establecimiento> filteredList = new ArrayList<Establecimiento>();
+
+                    for (Establecimiento es : establecimientos) {
+                        if(es.getNombre().toLowerCase().contains(filterText.toLowerCase()))
+                            filteredList.add(es);
+                    }
+
+                    mSearchAdapter.setEstablecimientos(filteredList);
+                }
+
+                return true;
+            }
+        });
 
         return true;
     }
@@ -268,8 +322,6 @@ public class MainActivity extends AppCompatActivity
             return true;
         }
 
-
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -294,5 +346,11 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onEstablecimientoSelected(Establecimiento es) {
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(es.getLocation(), 18));
+        searchRecyclerView.setVisibility(View.GONE);
     }
 }

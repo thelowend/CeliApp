@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">CeliApp</string>
-    <string name="app_desc">Vida sin TACC</string>
+    <string name="app_desc">CeliApp - Vida sin TACC</string>
 
     <!-- Actividades -->
     <string name="label_main_activity">Main Activity</string>
