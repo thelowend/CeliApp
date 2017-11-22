@@ -19,7 +19,8 @@ public class ChooserActivity extends AppCompatActivity implements AdapterView.On
             LoginActivity.class,
             SplashScreen.class,
             AgregarReviewActivity.class,
-            ReviewActivity.class
+            ReviewActivity.class,
+            GalleryActivity.class
     };
 
     private static final int[] DESCRIPTION_IDS = new int[] {
@@ -27,7 +28,8 @@ public class ChooserActivity extends AppCompatActivity implements AdapterView.On
             R.string.desc_login_activity,
             R.string.desc_splashscreen_activity,
             R.string.agregar_review_activity,
-            R.string.review_activity
+            R.string.review_activity,
+            R.string.gallery_activity
     };
 
     @Override

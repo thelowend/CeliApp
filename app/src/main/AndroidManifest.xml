@@ -7,7 +7,8 @@
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.INTERNET" />
-
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
@@ -59,7 +60,6 @@
             android:label="@string/title_activity_maps" />
         <activity android:name=".ChooserActivity" />
         <activity android:name=".BaseActivity" />
-        <activity android:name=".AgregarReview" />
         <activity
             android:name=".AgregarReviewActivity"
             android:label="@string/title_activity_agregar_review"
@@ -70,6 +70,8 @@
             android:name=".EstablecimientoActivity"
             android:label="@string/title_activity_establecimiento"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".PhotoActivity" />
+        <activity android:name=".GalleryActivity" />
     </application>
 
 </manifest>
