@@ -254,6 +254,10 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.action_chooser) {
             Intent intent = new Intent(getApplicationContext(), ChooserActivity.class);
+
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("ESTABLECIMIENTO", establecimientos.get(2));
+            intent.putExtras(bundle);
             startActivity(intent);
             finish();
             return true;

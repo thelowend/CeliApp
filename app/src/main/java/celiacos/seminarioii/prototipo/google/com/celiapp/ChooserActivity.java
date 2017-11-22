@@ -12,12 +12,17 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import celiacos.seminarioii.prototipo.google.com.celiapp.establecimiento.entities.Establecimiento;
+
 public class ChooserActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
+
+    private Establecimiento mainEstablecimiento;
 
     private static final Class[] CLASSES = new Class[]{
             MainActivity.class,
             LoginActivity.class,
             SplashScreen.class,
+            EstablecimientoActivity.class,
             AgregarReviewActivity.class,
             ReviewActivity.class,
             GalleryActivity.class
@@ -27,6 +32,7 @@ public class ChooserActivity extends AppCompatActivity implements AdapterView.On
             R.string.desc_main_activity,
             R.string.desc_login_activity,
             R.string.desc_splashscreen_activity,
+            R.string.title_activity_establecimiento,
             R.string.agregar_review_activity,
             R.string.review_activity,
             R.string.gallery_activity
@@ -36,6 +42,8 @@ public class ChooserActivity extends AppCompatActivity implements AdapterView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chooser);
+
+        mainEstablecimiento = (Establecimiento) this.getIntent().getSerializableExtra("ESTABLECIMIENTO");
 
         // Set up ListView and Adapter
         ListView listView = findViewById(R.id.list_view);
@@ -50,7 +58,12 @@ public class ChooserActivity extends AppCompatActivity implements AdapterView.On
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Class clicked = CLASSES[position];
-        startActivity(new Intent(this, clicked));
+
+        Intent intent = new Intent(this, clicked);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("ESTABLECIMIENTO", mainEstablecimiento);
+        intent.putExtras(bundle);
+        startActivity(intent);
     }
 
     public static class MyArrayAdapter extends ArrayAdapter<Class> {
