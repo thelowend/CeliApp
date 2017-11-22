@@ -70,7 +70,7 @@ public class InformationFragment extends Fragment {
         txtHorario.setText(mainEstablecimiento.getHorario());
         txtTelefono.setText(mainEstablecimiento.getTelefono());
 
-        rtgGeneral.setRating(puntajeSumatoria / userReviewsList.size());
+        rtgGeneral.setRating(result);
 
         ImageButton imgbtnEscribirOpinion = this.getActivity().findViewById(R.id.imgbtnEscribirOpinion);
         //imgbtnEscribirOpinion

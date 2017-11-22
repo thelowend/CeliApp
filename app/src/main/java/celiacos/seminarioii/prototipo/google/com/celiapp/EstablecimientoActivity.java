@@ -77,8 +77,9 @@ public class EstablecimientoActivity extends AppCompatActivity {
             for (UserReview review: userReviewsList) {
                 puntajeSumatoria += Float.parseFloat(review.getPuntaje());
             }
+            float result = puntajeSumatoria / totalReviews;
 
-            rtgEstablecimiento.setRating(puntajeSumatoria / totalReviews);
+            rtgEstablecimiento.setRating(result);
         }
 
     }
