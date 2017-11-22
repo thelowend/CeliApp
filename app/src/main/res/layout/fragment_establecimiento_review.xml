@@ -5,6 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ListView
+        android:id="@+id/lstUserReviews"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
     <Button
         android:id="@+id/btnSiguiente"
         android:layout_width="49dp"
@@ -26,61 +31,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.952" />
-
-    <ImageView
-        android:id="@+id/imgView"
-        android:layout_width="449dp"
-        android:layout_height="127dp"
-        android:scaleType="centerCrop"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/pruebaresto" />
-
-    <ListView
-        android:id="@+id/lstUserReviews"
-        android:layout_width="384dp"
-        android:layout_height="314dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtCantidadReviews" />
-
-    <RatingBar
-        android:id="@+id/rtgGeneral"
-        android:layout_width="234dp"
-        android:layout_height="45dp"
-        android:layout_margin="0dp"
-        android:isIndicator="true"
-        android:padding="0dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtNombreResto" />
-
-    <TextView
-        android:id="@+id/txtNombreResto"
-        android:layout_width="229dp"
-        android:layout_height="40dp"
-        android:layout_margin="0dp"
-        android:padding="0dp"
-        android:textAlignment="center"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgView" />
-
-    <TextView
-        android:id="@+id/txtCantidadReviews"
-        android:layout_width="94dp"
-        android:layout_height="20dp"
-        android:layout_margin="0dp"
-        android:padding="0dp"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rtgGeneral" />
 
 </android.support.constraint.ConstraintLayout>

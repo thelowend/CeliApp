@@ -5,8 +5,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
+import android.widget.ImageButton;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.RatingBar;
@@ -22,12 +21,7 @@ import celiacos.seminarioii.prototipo.google.com.celiapp.reviews.entitites.UserR
 
 public class InformationFragment extends Fragment {
 
-    RatingBar rtgGeneral;
-    TextView txtNombreResto;
-    TextView txtCantidadReviews;
     ListView lstUserReviews;
-    ImageView imgView;
-    Button btnSiguiente;
 
     Establecimiento mainEstablecimiento;
 
@@ -55,7 +49,32 @@ public class InformationFragment extends Fragment {
 
         mainEstablecimiento = (Establecimiento) getArguments().getSerializable("ESTABLECIMIENTO");
 
-        //Cosas de la pantalla de información:
+        TextView txtDireccion = getActivity().findViewById(R.id.txtDireccion);
+        TextView txtHorario = getActivity().findViewById(R.id.txtHorario);
+        TextView txtTelefono = getActivity().findViewById(R.id.txtTelefono);
+
+        RatingBar rtgGeneral = getActivity().findViewById(R.id.rtgGeneral);
+
+        ArrayList<UserReview> userReviewsList = mainEstablecimiento.getReviews();
+        ListAdapter adapter = new AdapterReview(this.getActivity(), userReviewsList);
+        lstUserReviews.setAdapter(adapter);
+
+        float puntajeSumatoria = 0;
+        int totalReviews = userReviewsList.size();
+        for (UserReview review: userReviewsList) {
+            puntajeSumatoria += Float.parseFloat(review.getPuntaje());
+        }
+
+        //Muestro datos
+        txtDireccion.setText(mainEstablecimiento.getDireccion());
+        txtHorario.setText(mainEstablecimiento.getHorario());
+        txtTelefono.setText(mainEstablecimiento.getTelefono());
+
+        rtgGeneral.setRating(puntajeSumatoria / userReviewsList.size());
+
+        ImageButton imgbtnEscribirOpinion = this.getActivity().findViewById(R.id.imgbtnEscribirOpinion);
+        //imgbtnEscribirOpinion
+
 
     }
 }

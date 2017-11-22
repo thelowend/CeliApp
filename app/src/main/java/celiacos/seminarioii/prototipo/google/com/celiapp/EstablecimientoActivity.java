@@ -17,13 +17,19 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.RatingBar;
 import android.widget.TextView;
+
+import org.w3c.dom.Text;
+
+import java.util.ArrayList;
 
 import celiacos.seminarioii.prototipo.google.com.celiapp.establecimiento.entities.Establecimiento;
 import celiacos.seminarioii.prototipo.google.com.celiapp.fragments.FoodsFragment;
 import celiacos.seminarioii.prototipo.google.com.celiapp.fragments.InformationFragment;
 import celiacos.seminarioii.prototipo.google.com.celiapp.fragments.PlaceholderFragment;
 import celiacos.seminarioii.prototipo.google.com.celiapp.fragments.ReviewFragment;
+import celiacos.seminarioii.prototipo.google.com.celiapp.reviews.entitites.UserReview;
 
 public class EstablecimientoActivity extends AppCompatActivity {
 
@@ -66,6 +72,23 @@ public class EstablecimientoActivity extends AppCompatActivity {
 
         //Obtengo Establecimiento del bundle para cargar los datos
         mainEstablecimiento = (Establecimiento) this.getIntent().getSerializableExtra("ESTABLECIMIENTO");
+
+        TextView txtNombre = this.findViewById(R.id.txtNombreEstablecimiento);
+        RatingBar rtgEstablecimiento = this.findViewById(R.id.rtgEstablecimiento);
+        ArrayList<UserReview> userReviewsList = mainEstablecimiento.getReviews();
+
+        //Muestro datos del Establecimiento:
+        txtNombre.setText(mainEstablecimiento.getNombre());
+
+        int totalReviews = userReviewsList.size();
+        if (totalReviews > 0) {
+            float puntajeSumatoria = 0;
+            for (UserReview review: userReviewsList) {
+                puntajeSumatoria += Float.parseFloat(review.getPuntaje());
+            }
+
+            rtgEstablecimiento.setRating(puntajeSumatoria / totalReviews);
+        }
 
     }
 
