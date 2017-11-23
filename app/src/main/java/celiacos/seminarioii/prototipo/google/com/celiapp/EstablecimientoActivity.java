@@ -73,7 +73,6 @@ public class EstablecimientoActivity extends AppCompatActivity {
         //Muestro datos del Establecimiento:
         txtNombre.setText(mainEstablecimiento.getNombre());
         txtDescripcion.setText(mainEstablecimiento.getDescripcion());
-        txtReseñaEstablecimiento.setText(R.string.reseñas_no + " " + R.string.reseñas_seelprimero);
 
         int totalReviews = userReviewsList.size();
 
@@ -83,11 +82,11 @@ public class EstablecimientoActivity extends AppCompatActivity {
                 puntajeSumatoria += Float.parseFloat(review.getPuntaje());
             }
             float result = puntajeSumatoria / totalReviews;
-
             rtgEstablecimiento.setRating(result);
             txtReseñaEstablecimiento.setVisibility(View.GONE);
         } else {
             rtgEstablecimiento.setVisibility(View.GONE);
+            txtReseñaEstablecimiento.setText(R.string.reseñas_no + " " + R.string.reseñas_seelprimero);
             txtReseñaEstablecimiento.setVisibility(View.VISIBLE);
         }
 

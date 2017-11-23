@@ -55,19 +55,24 @@
                 android:orientation="horizontal"
                 android:padding="4dp">
 
-                <RatingBar
-                    android:id="@+id/rtgGeneral"
-                    style="@style/Widget.AppCompat.RatingBar"
+                <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="0dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:isIndicator="true"
-                    android:numStars="5"
-                    android:padding="0dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txtNombreResto" />
+                    android:orientation="vertical">
+
+                    <RatingBar
+                        android:id="@+id/rtgGeneral"
+                        style="@style/Widget.AppCompat.RatingBar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:isIndicator="true"
+                        android:numStars="5"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtNombreResto" />
+                </LinearLayout>
 
                 <TextView
                     android:id="@+id/txtRating"
@@ -160,6 +165,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center_vertical"
+                    android:text="Hacer Sugerencia:"
                     android:textAlignment="textEnd"
                     android:textSize="18sp"
                     android:textStyle="bold"

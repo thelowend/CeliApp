@@ -43,7 +43,7 @@ public class Establecimiento implements Serializable {
             UserReview userReview = new UserReview();
             userReview.setEstablecimientoId((String) child.child("establecimientoId").getValue());
             userReview.setComentario((String) child.child("comentario").getValue());
-            userReview.setFecha((String) child.child("fecha").getValue());
+            userReview.setFecha(Long.toString((Long) child.child("fecha").getValue()));
             userReview.setUserId((String) child.child("userId").getValue());
             userReview.setPuntaje((String) child.child("puntaje").getValue());
             reviews.add(userReview);

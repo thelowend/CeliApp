@@ -69,13 +69,13 @@ public class InformationFragment extends Fragment {
         txtHorario.setText(mainEstablecimiento.getHorario());
         txtTelefono.setText(mainEstablecimiento.getTelefono());
 
-        if(Float.isNaN(result)) {
+        if(!Float.isNaN(result)) {
+            rtgGeneral.setVisibility(View.VISIBLE);
+            rtgGeneral.setRating(result);
+            txtRating.setText(String.format("%.01f", result) + " / 5");
+        } else {
             txtRating.setText(R.string.reseñas_no);
             rtgGeneral.setVisibility(View.GONE);
-            rtgGeneral.setRating(result);
-        } else {
-            rtgGeneral.setVisibility(View.VISIBLE);
-            txtRating.setText(String.format("%.01f", result) + " / 5");
         }
 
 
