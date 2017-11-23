@@ -76,7 +76,7 @@
                     android:textStyle="bold|italic" />
 
                 <RelativeLayout
-                    android:layout_width="250dp"
+                    android:layout_width="300dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="right">
@@ -124,7 +124,7 @@
                     android:textStyle="bold|italic" />
 
                 <RelativeLayout
-                    android:layout_width="250dp"
+                    android:layout_width="300dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="right">
@@ -171,7 +171,7 @@
                     android:textStyle="bold|italic" />
 
                 <RelativeLayout
-                    android:layout_width="250dp"
+                    android:layout_width="300dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="right">
@@ -219,7 +219,7 @@
                     android:textStyle="bold|italic" />
 
                 <RelativeLayout
-                    android:layout_width="250dp"
+                    android:layout_width="300dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="right">
@@ -266,7 +266,7 @@
                     android:textStyle="bold|italic" />
 
                 <RelativeLayout
-                    android:layout_width="250dp"
+                    android:layout_width="300dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="right">
@@ -314,7 +314,7 @@
                     android:textStyle="bold|italic" />
 
                 <RelativeLayout
-                    android:layout_width="250dp"
+                    android:layout_width="300dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="right">
@@ -361,7 +361,7 @@
                     android:textStyle="bold|italic" />
 
                 <RelativeLayout
-                    android:layout_width="250dp"
+                    android:layout_width="300dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="right">
@@ -409,7 +409,7 @@
                     android:textStyle="bold|italic" />
 
                 <RelativeLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="300dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="right">

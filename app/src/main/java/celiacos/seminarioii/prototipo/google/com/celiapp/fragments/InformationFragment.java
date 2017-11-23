@@ -142,37 +142,41 @@ public class InformationFragment extends Fragment {
                 int amountOfReviews = userReviewsList.size();
                 if (amountOfReviews > 0) {
 
-                    rtgCriterio1.setRating(sumatoriaPuntajes.get(0) / amountOfReviews);
+                    float rating1 = sumatoriaPuntajes.get(0) / amountOfReviews;
+                    rtgCriterio1.setRating(rating1);
                     rtgCriterio1.setVisibility(View.INVISIBLE);
                     txtCriterio1rtg.setVisibility(View.VISIBLE);
-                    if(sumatoriaPuntajes.get(0) > 0) {
+                    if (rating1 < 5) {
                         txtCriterio1rtg.setText("NO");
                     } else {
                         txtCriterio1rtg.setText("SI");
                     }
 
-                    rtgCriterio2.setRating(sumatoriaPuntajes.get(1) / amountOfReviews);
+                    float rating2 = sumatoriaPuntajes.get(1) / amountOfReviews;
+                    rtgCriterio2.setRating(rating2);
                     rtgCriterio2.setVisibility(View.INVISIBLE);
                     txtCriterio2rtg.setVisibility(View.VISIBLE);
-                    if(sumatoriaPuntajes.get(0) > 0) {
+                    if (rating2 == 5) {
                         txtCriterio2rtg.setText("NO");
                     } else {
                         txtCriterio2rtg.setText("SI");
                     }
 
-                    rtgCriterio3.setRating(sumatoriaPuntajes.get(2) / amountOfReviews);
+                    float rating3 = sumatoriaPuntajes.get(2) / amountOfReviews;
+                    rtgCriterio3.setRating(rating3);
                     rtgCriterio3.setVisibility(View.INVISIBLE);
                     txtCriterio3rtg.setVisibility(View.VISIBLE);
-                    if(sumatoriaPuntajes.get(0) > 0) {
+                    if (rating3 == 5) {
                         txtCriterio3rtg.setText("NO");
                     } else {
                         txtCriterio3rtg.setText("SI");
                     }
 
-                    rtgCriterio4.setRating(sumatoriaPuntajes.get(3) / amountOfReviews);
+                    float rating4 = sumatoriaPuntajes.get(3) / amountOfReviews;
+                    rtgCriterio4.setRating(rating4);
                     rtgCriterio4.setVisibility(View.INVISIBLE);
                     txtCriterio4rtg.setVisibility(View.VISIBLE);
-                    if(sumatoriaPuntajes.get(0) > 0) {
+                    if (rating4 == 5) {
                         txtCriterio4rtg.setText("NO");
                     } else {
                         txtCriterio4rtg.setText("SI");
@@ -197,19 +201,19 @@ public class InformationFragment extends Fragment {
                 } else {
                     rtgCriterio1.setVisibility(View.GONE);
                     txtCriterio1rtg.setVisibility(View.VISIBLE);
-                    txtCriterio1rtg.setText(R.string.reseñas_no);
+                    txtCriterio1rtg.setText(R.string.reseñas_noinfo);
 
                     rtgCriterio2.setVisibility(View.GONE);
                     txtCriterio2rtg.setVisibility(View.VISIBLE);
-                    txtCriterio2rtg.setText(R.string.reseñas_no);
+                    txtCriterio2rtg.setText(R.string.reseñas_noinfo);
 
                     rtgCriterio3.setVisibility(View.GONE);
                     txtCriterio3rtg.setVisibility(View.VISIBLE);
-                    txtCriterio3rtg.setText(R.string.reseñas_no);
+                    txtCriterio3rtg.setText(R.string.reseñas_noinfo);
 
                     rtgCriterio4.setVisibility(View.GONE);
                     txtCriterio4rtg.setVisibility(View.VISIBLE);
-                    txtCriterio4rtg.setText(R.string.reseñas_no);
+                    txtCriterio4rtg.setText(R.string.reseñas_noinfo);
 
                     rtgCriterio5.setVisibility(View.GONE);
                     txtCriterio5rtg.setVisibility(View.VISIBLE);

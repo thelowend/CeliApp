@@ -82,7 +82,8 @@ public class EstablecimientoActivity extends AppCompatActivity {
             txtReseñaEstablecimiento.setVisibility(View.GONE);
         } else {
             rtgEstablecimiento.setVisibility(View.GONE);
-            txtReseñaEstablecimiento.setText(R.string.reseñas_no + " " + R.string.reseñas_seelprimero);
+
+            txtReseñaEstablecimiento.setText(getText(R.string.reseñas_no) + " " + getText(R.string.reseñas_seelprimero));
             txtReseñaEstablecimiento.setVisibility(View.VISIBLE);
         }
     }
