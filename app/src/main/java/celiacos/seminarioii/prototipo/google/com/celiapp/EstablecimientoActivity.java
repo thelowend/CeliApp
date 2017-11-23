@@ -1,8 +1,7 @@
 package celiacos.seminarioii.prototipo.google.com.celiapp;
 
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -11,35 +10,24 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 
 import android.widget.RatingBar;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
 import celiacos.seminarioii.prototipo.google.com.celiapp.establecimiento.entities.Establecimiento;
 import celiacos.seminarioii.prototipo.google.com.celiapp.fragments.FoodsFragment;
 import celiacos.seminarioii.prototipo.google.com.celiapp.fragments.InformationFragment;
-import celiacos.seminarioii.prototipo.google.com.celiapp.fragments.PlaceholderFragment;
 import celiacos.seminarioii.prototipo.google.com.celiapp.fragments.ReviewFragment;
 import celiacos.seminarioii.prototipo.google.com.celiapp.reviews.entitites.UserReview;
 
 public class EstablecimientoActivity extends AppCompatActivity {
 
-    private SectionsPagerAdapter mSectionsPagerAdapter;
     private Establecimiento mainEstablecimiento;
-
-    /**
-     * The {@link ViewPager} that will host the section contents.
-     */
-    private ViewPager mViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,10 +38,13 @@ public class EstablecimientoActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+        SectionsPagerAdapter mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
-        mViewPager = (ViewPager) findViewById(R.id.container);
+        /*
+      The {@link ViewPager} that will host the section contents.
+     */
+        ViewPager mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
@@ -89,7 +80,21 @@ public class EstablecimientoActivity extends AppCompatActivity {
             txtReseñaEstablecimiento.setText(R.string.reseñas_no + " " + R.string.reseñas_seelprimero);
             txtReseñaEstablecimiento.setVisibility(View.VISIBLE);
         }
+    }
 
+
+    public void goToUploadPhoto(View view) {
+        Intent intent = new Intent(this, PhotoActivity.class);
+        intent.putExtra("establecimientoId", mainEstablecimiento.getEstablecimientoID());
+        startActivity(intent);
+    }
+
+    public void goToAgregarReview(View v)
+    {
+        Intent intent = AgregarReviewActivity.makeIntent(this);
+        intent.putExtra("establecimientoNombre", mainEstablecimiento.getNombre());
+        intent.putExtra("establecimientoId", mainEstablecimiento.getEstablecimientoID());
+        startActivity(intent);
     }
 
     @Override

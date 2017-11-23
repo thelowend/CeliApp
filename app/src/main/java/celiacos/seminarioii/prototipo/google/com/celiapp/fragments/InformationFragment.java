@@ -58,11 +58,12 @@ public class InformationFragment extends Fragment {
         ArrayList<UserReview> userReviewsList = mainEstablecimiento.getReviews();
 
         float puntajeSumatoria = 0;
-        int totalReviews = userReviewsList.size();
         for (UserReview review: userReviewsList) {
             puntajeSumatoria += Float.parseFloat(review.getPuntaje());
         }
-        float result = puntajeSumatoria / userReviewsList.size();
+        float result = 0;
+        if(userReviewsList.size() > 0)
+            result = puntajeSumatoria / userReviewsList.size();
 
         //Muestro datos
         txtDireccion.setText(mainEstablecimiento.getDireccion());

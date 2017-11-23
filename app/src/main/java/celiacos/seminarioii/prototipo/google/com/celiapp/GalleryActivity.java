@@ -67,6 +67,7 @@ public class GalleryActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 progressDialog.dismiss();
+                photos.clear();
 
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()){
                     Photo photo = snapshot.getValue(Photo.class);

@@ -50,7 +50,7 @@ public class PhotoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_photo);
 
         Bundle bundle = getIntent().getExtras();
-        if(bundle != null && bundle.get("establecimiento") != null){
+        if(bundle != null && bundle.get("establecimientoId") != null){
             establecimientoId = (String)bundle.get("establecimientoId");
         }else{
             establecimientoId = "-KzQFVf9bVYnLGJiYOZI";

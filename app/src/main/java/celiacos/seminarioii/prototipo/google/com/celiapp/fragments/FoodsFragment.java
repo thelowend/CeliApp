@@ -81,11 +81,14 @@ public class FoodsFragment extends Fragment {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 progressDialog.dismiss();
+                photos.clear();
 
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()){
                     Photo photo = snapshot.getValue(Photo.class);
                     photos.add(photo);
                 }
+
+
 
                 adapter = new GalleryAdapter(frag.getActivity(), R.layout.image_item, photos);
                 listView.setAdapter(adapter);
@@ -98,8 +101,5 @@ public class FoodsFragment extends Fragment {
         });
     }
 
-    public void goToUpload(View view) {
-        Intent intent = new Intent(this.getActivity(), PhotoActivity.class);
-        startActivity(intent);
-    }
+
 }

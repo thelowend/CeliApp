@@ -128,8 +128,8 @@ public class AgregarReviewActivity extends AppCompatActivity {
         userReview.setPuntaje(String.valueOf(promedio / userReviewQuestions.size()));
         if(mAuth != null && mAuth.getCurrentUser() != null)
             userReview.setUserId(mAuth.getCurrentUser().getEmail());
-        //userReview.setQuestionsReviews(userReviewQuestions);
-        userReview.setFecha(Calendar.getInstance().getTime().toString());
+        userReview.setQuestionsReviews(userReviewQuestions);
+        userReview.setFecha(System.currentTimeMillis());
 
         myRef.push().setValue(userReview);
 
@@ -190,11 +190,14 @@ public class AgregarReviewActivity extends AppCompatActivity {
         mapSiNo.put("No",5);
         mapSiNo.put("Si",1);
 
-        reviews.add(new ReviewQuestion("¿Tiene Contaminacion cruzada?", TiposOpciones.SINOINVERTIDO, mapSiNoInvertido));
-        reviews.add(new ReviewQuestion("poseen variedad de platos para celiacos", TiposOpciones.SINO, mapSiNo));
-        //reviews.add(new ReviewQuestion("Restaurante", TiposOpciones.ESTRELLAS, mapEstrella));
-        //reviews.add(new ReviewQuestion("Comida", TiposOpciones.ESTRELLAS, mapEstrella));
-        reviews.add(new ReviewQuestion("Atencion", TiposOpciones.ESTRELLAS, mapEstrella));
+        reviews.add(new ReviewQuestion("¿El lugar está libre de contaminación cruzada de gluten?", TiposOpciones.SINO, mapSiNoInvertido));
+        reviews.add(new ReviewQuestion("¿Posee cervezas libres de gluten?", TiposOpciones.SINO, mapSiNo));
+        reviews.add(new ReviewQuestion("¿Posee variedad de platos libres de gluten?", TiposOpciones.SINO, mapSiNo));
+        reviews.add(new ReviewQuestion("¿Posee postres sin gluten?", TiposOpciones.SINO, mapSiNo));
+        reviews.add(new ReviewQuestion("Calidad de la atencion", TiposOpciones.ESTRELLAS, mapEstrella));
+        reviews.add(new ReviewQuestion("Calidad de los platos", TiposOpciones.ESTRELLAS, mapEstrella));
+        reviews.add(new ReviewQuestion("Limpieza del lugar", TiposOpciones.ESTRELLAS, mapEstrella));
+        reviews.add(new ReviewQuestion("Ambiente del lugar", TiposOpciones.ESTRELLAS, mapEstrella));
     }
 
     public TextView getPregunta() {

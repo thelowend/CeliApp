@@ -1,5 +1,6 @@
 package celiacos.seminarioii.prototipo.google.com.celiapp.reviews.entitites;
 
+import com.google.firebase.database.DataSnapshot;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -7,27 +8,32 @@ import java.util.ArrayList;
 public class UserReview implements Serializable {
 
     private String establecimientoId;
-    //private ArrayList<UserReviewQuestion> questionsReviews;
+    private ArrayList<UserReviewQuestion> questionsReviews;
     private String comentario;
     private String userId;
-    private String fecha;
+    private long fecha;
     private String puntaje;
 
     public UserReview() {
     }
 
-    public UserReview(String userReviewId, ArrayList<UserReviewQuestion> questionsReviews, String comentario, String userId, String fecha, String puntaje) {
+    public UserReview(DataSnapshot dataSnapshot){
+        establecimientoId = (String) dataSnapshot.child("establecimientoId").getValue();
+        comentario = (String) dataSnapshot.child("comentario").getValue();
+        fecha = (long) dataSnapshot.child("fecha").getValue();
+        userId = (String) dataSnapshot.child("userId").getValue();
+        puntaje = (String) dataSnapshot.child("puntaje").getValue();
+    }
+
+    public UserReview(String userReviewId, ArrayList<UserReviewQuestion> questionsReviews, String comentario, String userId, long fecha, String puntaje) {
         this.establecimientoId = establecimientoId;
-        //this.questionsReviews = questionsReviews;
+        this.questionsReviews = questionsReviews;
         this.comentario = comentario;
         this.userId = userId;
         this.fecha = fecha;
         this.puntaje = puntaje;
     }
 
-    public String getEstablecimientoId() {
-        return establecimientoId;
-    }
 
     public void setEstablecimientoId(String establecimientoId) {
         this.establecimientoId = establecimientoId;
@@ -49,14 +55,14 @@ public class UserReview implements Serializable {
         this.userId = userId;
     }
 
-    public String getFecha() {
+    public long getFecha() {
         return fecha;
     }
 
-    public void setFecha(String fecha) {
+    public void setFecha(long fecha) {
         this.fecha = fecha;
     }
-    /*
+
     public ArrayList<UserReviewQuestion> getQuestionsReviews() {
         return questionsReviews;
     }
@@ -64,7 +70,7 @@ public class UserReview implements Serializable {
     public void setQuestionsReviews(ArrayList<UserReviewQuestion> questionsReviews) {
         this.questionsReviews = questionsReviews;
     }
-    */
+
     public String getPuntaje() {
         return puntaje;
     }

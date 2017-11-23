@@ -73,12 +73,7 @@ public class ReviewActivity extends AppCompatActivity {
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     reviews.clear();
                     for (final DataSnapshot child : dataSnapshot.getChildren()) {
-                        UserReview userReview = new UserReview();
-                        userReview.setEstablecimientoId((String) child.child("establecimientoId").getValue());
-                        userReview.setComentario((String) child.child("comentario").getValue());
-                        userReview.setFecha((String) child.child("fecha").getValue());
-                        userReview.setUserId((String) child.child("userId").getValue());
-                        userReview.setPuntaje((String) child.child("puntaje").getValue());
+                        UserReview userReview = new UserReview(dataSnapshot);
                         reviews.add(userReview);
                         contador = contador + 1;
                         punt = punt + Float.parseFloat(userReview.getPuntaje());

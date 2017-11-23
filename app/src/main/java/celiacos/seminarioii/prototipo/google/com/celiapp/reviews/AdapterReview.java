@@ -12,7 +12,12 @@ import android.widget.EditText;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import org.ocpsoft.prettytime.PrettyTime;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import celiacos.seminarioii.prototipo.google.com.celiapp.R;
 import celiacos.seminarioii.prototipo.google.com.celiapp.reviews.entitites.UserReview;
@@ -48,7 +53,6 @@ public class AdapterReview extends BaseAdapter{
 
         View v = convertView;
 
-
         if(convertView == null){
             LayoutInflater inf = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             if (inf != null) {
@@ -61,7 +65,7 @@ public class AdapterReview extends BaseAdapter{
         TextView nombre = v.findViewById(R.id.nombre);
         nombre.setText(userReview.getUserId());
 
-        EditText comentario = v.findViewById(R.id.comentario);
+        TextView comentario = v.findViewById(R.id.comentario);
         comentario.setText(userReview.getComentario());
         comentario.setEnabled(false);
         RatingBar puntaje = v.findViewById(R.id.puntaje_review);
@@ -69,7 +73,8 @@ public class AdapterReview extends BaseAdapter{
             puntaje.setRating(Float.parseFloat(userReview.getPuntaje()));
 
         TextView fecha = v.findViewById(R.id.fecha);
-        fecha.setText(userReview.getFecha());
+        PrettyTime p = new PrettyTime(new Locale("es"));
+        fecha.setText(p.format(new Date(userReview.getFecha())));
 
         return v;
     }
