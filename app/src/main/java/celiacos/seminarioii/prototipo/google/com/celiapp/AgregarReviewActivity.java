@@ -17,6 +17,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
@@ -46,6 +48,7 @@ public class AgregarReviewActivity extends AppCompatActivity {
     private Button boton_siguiente;
 
     private EditText comentario;
+    private TextView tvComentario;
     private List<ReviewQuestion> reviews = new ArrayList<>();
 
     private ArrayList<UserReviewQuestion> userReviewQuestions = new ArrayList<>();
@@ -56,6 +59,7 @@ public class AgregarReviewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_agregar_review);
 
         comentario = findViewById(R.id.texto_usuario);
+        tvComentario = findViewById(R.id.tvComentario);
         botonSi = findViewById(R.id.botonSi);
         botonNo = findViewById(R.id.botonNo);
         boton_siguiente = findViewById(R.id.boton_siguiente);
@@ -69,10 +73,10 @@ public class AgregarReviewActivity extends AppCompatActivity {
         if (getIntent().getExtras() != null) {
             establecimientoNombre.setText((String) getIntent().getExtras().getSerializable("establecimientoNombre"));
             establecimientoId = (String) getIntent().getExtras().getSerializable("establecimientoId");
-
         }
         comentario.setVisibility(View.INVISIBLE);
         boton_finalizar.setVisibility(View.INVISIBLE);
+        tvComentario.setVisibility(View.INVISIBLE);
 
         getReviewsMock();
         contador = 0;
@@ -84,6 +88,7 @@ public class AgregarReviewActivity extends AppCompatActivity {
         if(contador == reviews.size()) {
             boton_finalizar.setVisibility(View.VISIBLE);
             comentario.setVisibility(View.VISIBLE);
+            tvComentario.setVisibility(View.VISIBLE);
 
             boton_siguiente.setVisibility(View.INVISIBLE);
             pregunta.setVisibility(View.INVISIBLE);
