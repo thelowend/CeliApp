@@ -16,6 +16,10 @@ import android.view.View;
 
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 
@@ -28,6 +32,8 @@ import celiacos.seminarioii.prototipo.google.com.celiapp.reviews.entitites.UserR
 public class EstablecimientoActivity extends AppCompatActivity {
 
     private Establecimiento mainEstablecimiento;
+    private FirebaseAuth mAuth;
+    private FirebaseUser mUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,14 +42,10 @@ public class EstablecimientoActivity extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        // Create the adapter that will return a fragment for each of the three
-        // primary sections of the activity.
+
         SectionsPagerAdapter mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
-        // Set up the ViewPager with the sections adapter.
-        /*
-      The {@link ViewPager} that will host the section contents.
-     */
+
         ViewPager mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
@@ -51,6 +53,9 @@ public class EstablecimientoActivity extends AppCompatActivity {
 
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
+
+        mAuth = FirebaseAuth.getInstance();
+        mUser = mAuth.getCurrentUser();
 
         //Obtengo Establecimiento del bundle para cargar los datos
         mainEstablecimiento = (Establecimiento) this.getIntent().getSerializableExtra("ESTABLECIMIENTO");
@@ -84,23 +89,34 @@ public class EstablecimientoActivity extends AppCompatActivity {
 
 
     public void goToUploadPhoto(View view) {
-        Intent intent = new Intent(this, PhotoActivity.class);
-        intent.putExtra("establecimientoId", mainEstablecimiento.getEstablecimientoID());
-        startActivity(intent);
+        if(mUser != null) {
+            Intent intent = new Intent(this, PhotoActivity.class);
+            intent.putExtra("establecimientoId", mainEstablecimiento.getEstablecimientoID());
+            startActivity(intent);
+        } else {
+            Toast.makeText(getApplicationContext(), "¡Necesitás loguearte para subir fotos!", Toast.LENGTH_SHORT).show();
+        }
+
+
     }
 
     public void goToAgregarReview(View v)
     {
-        Intent intent = AgregarReviewActivity.makeIntent(this);
-        intent.putExtra("establecimientoNombre", mainEstablecimiento.getNombre());
-        intent.putExtra("establecimientoId", mainEstablecimiento.getEstablecimientoID());
-        startActivity(intent);
+        if(mUser != null) {
+            Intent intent = AgregarReviewActivity.makeIntent(this);
+            intent.putExtra("establecimientoNombre", mainEstablecimiento.getNombre());
+            intent.putExtra("establecimientoId", mainEstablecimiento.getEstablecimientoID());
+            startActivity(intent);
+        } else {
+            Toast.makeText(getApplicationContext(), "¡Necesitás estar logueado para dejar una reseña!", Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_establecimiento, menu);
+        getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 

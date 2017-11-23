@@ -6,6 +6,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorPrimaryAccent</item>
+
         <!--
         <item name="colorSecondary">@color/colorSecondary</item>
         <item name="colorSecondaryDark">@color/colorSecondaryDark</item>
@@ -53,6 +54,11 @@
     <style name="ThemeOverlay.MyTitleText" parent="AppTheme">
         <item name="android:gravity">center</item>
         <item name="android:textSize">36sp</item>
+    </style>
+
+    <style name="RatingBarWhite" parent="Theme.AppCompat">
+        <item name="colorControlNormal">@color/grey_100</item>
+        <item name="colorControlActivated">@color/colorWhite</item>
     </style>
 
 </resources>

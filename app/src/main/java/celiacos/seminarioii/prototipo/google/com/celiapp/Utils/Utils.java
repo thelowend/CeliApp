@@ -136,6 +136,10 @@ public class Utils {
         pushAndSaveKey(random3, dbRef.push());
     }
 
+    public String parseTelefono (String telefono) {
+        return "tel:" + telefono.replaceAll("\\s+","").replaceAll("-","");
+    }
+
     public void createDbData () {
         db = FirebaseDatabase.getInstance();
         createEstablecimientos();

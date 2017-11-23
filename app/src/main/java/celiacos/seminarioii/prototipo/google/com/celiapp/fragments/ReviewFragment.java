@@ -5,12 +5,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.RatingBar;
-import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -22,8 +19,6 @@ import java.util.ArrayList;
 
 import celiacos.seminarioii.prototipo.google.com.celiapp.R;
 import celiacos.seminarioii.prototipo.google.com.celiapp.establecimiento.entities.Establecimiento;
-import celiacos.seminarioii.prototipo.google.com.celiapp.photos.GalleryAdapter;
-import celiacos.seminarioii.prototipo.google.com.celiapp.photos.Photo;
 import celiacos.seminarioii.prototipo.google.com.celiapp.reviews.AdapterReview;
 import celiacos.seminarioii.prototipo.google.com.celiapp.reviews.entitites.UserReview;
 
@@ -64,7 +59,7 @@ public class ReviewFragment extends Fragment {
 
         userReviewsList = mainEstablecimiento.getReviews();
         lstUserReviews = getActivity().findViewById(R.id.lstUserReviews);
-        ratingGral = getActivity().findViewById(R.id.rtgGeneral);
+        ratingGral = getActivity().findViewById(R.id.rtgCriterio2);
         final Fragment frag = this;
 
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("Establecimientos").child(mainEstablecimiento.getEstablecimientoID()).child("userReviews");

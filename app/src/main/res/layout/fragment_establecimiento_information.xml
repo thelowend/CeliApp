@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -47,7 +52,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:background="@color/colorPrimaryAccent"
+            android:orientation="vertical"
+            android:padding="4dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -55,35 +62,390 @@
                 android:orientation="horizontal"
                 android:padding="4dp">
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
+                <TextView
+                    android:id="@+id/txtCriterio1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="start"
+                    android:shadowColor="@color/colorPrimaryDark"
+                    android:text="@string/criterio_1"
+                    android:textAlignment="viewStart"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold|italic" />
+
+                <RelativeLayout
+                    android:layout_width="250dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:gravity="right">
 
                     <RatingBar
-                        android:id="@+id/rtgGeneral"
-                        style="@style/Widget.AppCompat.RatingBar"
+                        android:id="@+id/rtgCriterio1"
+                        style="@style/Widget.AppCompat.RatingBar.Small"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="right|center_vertical|end"
                         android:layout_weight="1"
                         android:isIndicator="true"
                         android:numStars="5"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/txtNombreResto" />
-                </LinearLayout>
+                        android:progressTint="@android:color/white"
+                        android:textAlignment="gravity" />
+
+                    <TextView
+                        android:id="@+id/txtCriterio1rtg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:text="TextView"
+                        android:visibility="invisible" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/white"
+                android:orientation="horizontal"
+                android:padding="4dp">
 
                 <TextView
-                    android:id="@+id/txtRating"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/txtCriterio2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="start"
+                    android:shadowColor="@color/colorPrimaryDark"
+                    android:text="@string/criterio_2"
+                    android:textAlignment="viewStart"
+                    android:textSize="14sp"
+                    android:textStyle="bold|italic" />
+
+                <RelativeLayout
+                    android:layout_width="250dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="Test"
-                    android:textSize="24sp"
-                    android:textStyle="bold" />
+                    android:gravity="right">
+
+                    <RatingBar
+                        android:id="@+id/rtgCriterio2"
+                        style="@style/Widget.AppCompat.RatingBar.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right|center_vertical|end"
+                        android:layout_weight="1"
+                        android:isIndicator="true"
+                        android:numStars="5"
+                        android:textAlignment="gravity" />
+
+                    <TextView
+                        android:id="@+id/txtCriterio2rtg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:text="TextView"
+                        android:visibility="invisible" />
+                </RelativeLayout>
+
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:padding="4dp">
+
+                <TextView
+                    android:id="@+id/txtCriterio3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="start"
+                    android:shadowColor="@color/colorPrimaryDark"
+                    android:text="@string/criterio_3"
+                    android:textAlignment="viewStart"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold|italic" />
+
+                <RelativeLayout
+                    android:layout_width="250dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="right">
+
+                    <RatingBar
+                        android:id="@+id/rtgCriterio3"
+                        style="@style/Widget.AppCompat.RatingBar.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right|center_vertical|end"
+                        android:layout_weight="1"
+                        android:isIndicator="true"
+                        android:numStars="5"
+                        android:progressTint="@android:color/white"
+                        android:textAlignment="gravity" />
+
+                    <TextView
+                        android:id="@+id/txtCriterio3rtg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:text="TextView"
+                        android:visibility="invisible" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/white"
+                android:orientation="horizontal"
+                android:padding="4dp">
+
+                <TextView
+                    android:id="@+id/txtCriterio4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="start"
+                    android:shadowColor="@color/colorPrimaryDark"
+                    android:text="@string/criterio_4"
+                    android:textAlignment="viewStart"
+                    android:textSize="14sp"
+                    android:textStyle="bold|italic" />
+
+                <RelativeLayout
+                    android:layout_width="250dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="right">
+
+                    <RatingBar
+                        android:id="@+id/rtgCriterio4"
+                        style="@style/Widget.AppCompat.RatingBar.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right|center_vertical|end"
+                        android:layout_weight="1"
+                        android:isIndicator="true"
+                        android:numStars="5"
+                        android:textAlignment="gravity" />
+
+                    <TextView
+                        android:id="@+id/txtCriterio4rtg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:text="TextView"
+                        android:visibility="invisible" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:padding="4dp">
+
+                <TextView
+                    android:id="@+id/txtCriterio5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="start"
+                    android:shadowColor="@color/colorPrimaryDark"
+                    android:text="@string/criterio_5"
+                    android:textAlignment="viewStart"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold|italic" />
+
+                <RelativeLayout
+                    android:layout_width="250dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="right">
+
+                    <RatingBar
+                        android:id="@+id/rtgCriterio5"
+                        style="@style/Widget.AppCompat.RatingBar.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right|center_vertical|end"
+                        android:layout_weight="1"
+                        android:isIndicator="true"
+                        android:numStars="5"
+                        android:progressTint="@android:color/white"
+                        android:textAlignment="gravity" />
+
+                    <TextView
+                        android:id="@+id/txtCriterio5rtg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:text="TextView"
+                        android:visibility="invisible" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/white"
+                android:orientation="horizontal"
+                android:padding="4dp">
+
+                <TextView
+                    android:id="@+id/txtCriterio6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="start"
+                    android:shadowColor="@color/colorPrimaryDark"
+                    android:text="@string/criterio_6"
+                    android:textAlignment="viewStart"
+                    android:textSize="14sp"
+                    android:textStyle="bold|italic" />
+
+                <RelativeLayout
+                    android:layout_width="250dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="right">
+
+                    <RatingBar
+                        android:id="@+id/rtgCriterio6"
+                        style="@style/Widget.AppCompat.RatingBar.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right|center_vertical|end"
+                        android:layout_weight="1"
+                        android:isIndicator="true"
+                        android:numStars="5"
+                        android:textAlignment="gravity" />
+
+                    <TextView
+                        android:id="@+id/txtCriterio6rtg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:text="TextView"
+                        android:visibility="invisible" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:padding="4dp">
+
+                <TextView
+                    android:id="@+id/txtCriterio7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="start"
+                    android:shadowColor="@color/colorPrimaryDark"
+                    android:text="@string/criterio_7"
+                    android:textAlignment="viewStart"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold|italic" />
+
+                <RelativeLayout
+                    android:layout_width="250dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="right">
+
+                    <RatingBar
+                        android:id="@+id/rtgCriterio7"
+                        style="@style/Widget.AppCompat.RatingBar.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right|center_vertical|end"
+                        android:layout_weight="1"
+                        android:isIndicator="true"
+                        android:numStars="5"
+                        android:progressTint="@android:color/white"
+                        android:textAlignment="gravity" />
+
+                    <TextView
+                        android:id="@+id/txtCriterio7rtg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:text="TextView"
+                        android:visibility="invisible" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/white"
+                android:orientation="horizontal"
+                android:padding="4dp">
+
+                <TextView
+                    android:id="@+id/txtCriterio8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="start"
+                    android:shadowColor="@color/colorPrimaryDark"
+                    android:text="@string/criterio_8"
+                    android:textAlignment="viewStart"
+                    android:textSize="14sp"
+                    android:textStyle="bold|italic" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="right">
+
+                    <RatingBar
+                        android:id="@+id/rtgCriterio8"
+                        style="@style/Widget.AppCompat.RatingBar.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right|center_vertical|end"
+                        android:layout_weight="1"
+                        android:isIndicator="true"
+                        android:numStars="5"
+                        android:textAlignment="gravity" />
+
+                    <TextView
+                        android:id="@+id/txtCriterio8rtg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:text="TextView"
+                        android:visibility="invisible" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:divider="@drawable/divider_drawable"
+            android:dividerPadding="2dp"
+            android:orientation="vertical"
+            android:showDividers="beginning|end">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -93,14 +455,14 @@
 
                 <ImageView
                     android:id="@+id/imgDireccion"
-                    android:layout_width="50dp"
+                    android:layout_width="100dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     app:srcCompat="@drawable/ic_place" />
 
                 <TextView
                     android:id="@+id/txtDireccion"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="TextView"
@@ -115,14 +477,14 @@
 
                 <ImageView
                     android:id="@+id/imgTelefono"
-                    android:layout_width="50dp"
+                    android:layout_width="100dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     app:srcCompat="@drawable/ic_llamar" />
 
                 <TextView
                     android:id="@+id/txtTelefono"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="TextView"
@@ -138,20 +500,27 @@
 
                 <ImageView
                     android:id="@+id/imgHorario"
-                    android:layout_width="50dp"
+                    android:layout_width="100dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     app:srcCompat="@drawable/ic_horario" />
 
                 <TextView
                     android:id="@+id/txtHorario"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="TextView"
                     android:textSize="24sp" />
 
             </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -161,7 +530,7 @@
 
                 <TextView
                     android:id="@+id/textView2"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center_vertical"
@@ -173,17 +542,15 @@
 
                 <ImageButton
                     android:id="@+id/imgbtnSugerirCambio"
-                    android:layout_width="150dp"
+                    android:layout_width="400dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
                     android:layout_weight="1"
                     android:padding="4dp"
                     app:srcCompat="@drawable/ic_contribucion" />
             </LinearLayout>
-
         </LinearLayout>
 
     </LinearLayout>
-
-
+    </android.support.v4.widget.NestedScrollView>
 </android.support.constraint.ConstraintLayout>

@@ -21,7 +21,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -61,6 +63,12 @@ public class MainActivity extends AppCompatActivity
     private View mapView;
     private View locationButton;
     private RecyclerView searchRecyclerView;
+    private SearchView searchView;
+
+    private ImageView imgCajonUserPic;
+    private TextView txtCajonUsername;
+    private TextView txtCajonMail;
+
 
     private SearchListAdapter mSearchAdapter;
 
@@ -87,6 +95,10 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        imgCajonUserPic = navigationView.getHeaderView(0).findViewById(R.id.imgCajonUserPic);
+        txtCajonUsername = navigationView.getHeaderView(0).findViewById(R.id.txtCajonUsername);
+        txtCajonMail  = navigationView.getHeaderView(0).findViewById(R.id.txtCajonMail);
+
         mSearchAdapter = new SearchListAdapter(new ArrayList<Establecimiento>(), this, this);
         searchRecyclerView = findViewById(R.id.recycler_search);
         searchRecyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -108,10 +120,18 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onStart() {
         super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        //mAuth.getCurrentUser().getDisplayName();
-        //updateUI(currentUser);
+
+        if (currentUser != null) {
+            imgCajonUserPic.setImageURI(currentUser.getPhotoUrl());
+            txtCajonUsername.setText(currentUser.getDisplayName());
+            txtCajonMail.setText(currentUser.getEmail());
+        } else {
+            imgCajonUserPic.setImageResource(R.drawable.ic_user_anon);
+            txtCajonUsername.setText(R.string.anonimo);
+            txtCajonMail.setText(R.string.empty);
+        }
+
     }
 
     private void loadMarkers () {
@@ -225,16 +245,15 @@ public class MainActivity extends AppCompatActivity
             super.onBackPressed();
         }
     }
-
+    MenuItem searchMenuItem;
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
         getMenuInflater().inflate(R.menu.main, menu);
 
-        SearchView searchView =
-                (SearchView) menu.findItem(R.id.action_search).getActionView();
+        searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
 
-        MenuItem searchMenuItem = (MenuItem) menu.findItem(R.id.action_search);
+        searchMenuItem = (MenuItem) menu.findItem(R.id.action_search);
         searchMenuItem.setOnActionExpandListener(new MenuItem.OnActionExpandListener() {
             @Override
             public boolean onMenuItemActionExpand(MenuItem item) {
@@ -248,6 +267,7 @@ public class MainActivity extends AppCompatActivity
                 return true;
             }
         });
+
 
         searchView.setOnCloseListener(new SearchView.OnCloseListener() {
             @Override
@@ -352,5 +372,13 @@ public class MainActivity extends AppCompatActivity
     public void onEstablecimientoSelected(Establecimiento es) {
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(es.getLocation(), 18));
         searchRecyclerView.setVisibility(View.GONE);
+        searchMenuItem.collapseActionView();
+        /*
+        if (!searchView.isIconified()) {
+            searchView.setIconified(true);
+        } else {
+            super.onBackPressed();
+        }
+        */
     }
 }

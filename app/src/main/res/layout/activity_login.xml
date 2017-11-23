@@ -3,7 +3,7 @@
     android:id="@+id/main_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
+    android:background="@color/colorWhite"
     android:orientation="vertical"
     android:weightSum="4">
 
@@ -20,14 +20,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@string/desc_firebase_lockup"
-            android:src="@mipmap/firebase_lockup_400" />
+            android:src="@mipmap/ic_launcher" />
 
         <TextView
             android:id="@+id/title_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/title_bottom_margin"
-            android:text="@string/emailpassword_title_text"
+            android:text="Ingresá o Registrate"
             android:theme="@style/ThemeOverlay.MyTitleText" />
 
         <TextView
@@ -89,6 +89,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@color/colorPrimaryDark"
                 android:text="@string/sign_in"
                 android:theme="@style/ThemeOverlay.MyDarkButton" />
 
@@ -97,6 +98,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@color/colorSecondary"
                 android:text="@string/create_account"
                 android:theme="@style/ThemeOverlay.MyDarkButton" />
         </LinearLayout>

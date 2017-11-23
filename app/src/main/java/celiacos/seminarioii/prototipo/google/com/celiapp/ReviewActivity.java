@@ -59,7 +59,7 @@ public class ReviewActivity extends AppCompatActivity {
             }
 
             userReviews = findViewById(R.id.userReviews);
-            ratingGral = findViewById(R.id.rtgGeneral);
+            ratingGral = findViewById(R.id.rtgCriterio2);
             nombreResto = findViewById(R.id.txtNombreResto);
             cantidadReviews = findViewById(R.id.txtCantidadReviews);
 

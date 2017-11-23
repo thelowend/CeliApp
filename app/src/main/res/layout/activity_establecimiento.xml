@@ -51,9 +51,11 @@
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
                     android:shadowColor="@color/colorPrimaryDark"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
                     android:text="TextView"
                     android:textColor="@android:color/background_light"
-                    android:textSize="30sp"
+                    android:textSize="26sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -66,7 +68,8 @@
                     android:shadowColor="@color/colorPrimaryDark"
                     android:text="TextView"
                     android:textColor="@android:color/background_light"
-                    android:textSize="24sp" />
+                    android:textSize="18sp"
+                    android:textStyle="bold|italic" />
             </LinearLayout>
 
             <LinearLayout
@@ -85,11 +88,14 @@
 
                     <RatingBar
                         android:id="@+id/rtgEstablecimiento"
+                        style="@style/Widget.AppCompat.RatingBar.Indicator"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
                         android:isIndicator="true"
-                        android:numStars="5" />
+                        android:numStars="5"
+                        android:scaleX="0.9"
+                        android:scaleY="0.9" />
 
                     <TextView
                         android:id="@+id/txtReseñaEstablecimiento"
@@ -118,6 +124,9 @@
                 android:id="@+id/imgEstablecimiento"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
                 android:layout_weight="1"
                 android:scaleType="centerCrop"
                 app:srcCompat="@drawable/pruebaresto" />
@@ -154,7 +163,8 @@
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:layout_marginBottom="55dp"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+        />
 
 </android.support.design.widget.CoordinatorLayout>

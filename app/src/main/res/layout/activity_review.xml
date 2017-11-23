@@ -51,7 +51,7 @@
         app:layout_constraintTop_toBottomOf="@+id/txtCantidadReviews" />
 
     <RatingBar
-        android:id="@+id/rtgGeneral"
+        android:id="@+id/rtgCriterio2"
         android:layout_width="234dp"
         android:layout_height="45dp"
         android:layout_margin="0dp"
@@ -83,7 +83,7 @@
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rtgGeneral" />
+        app:layout_constraintTop_toBottomOf="@+id/rtgCriterio2" />
 
 </android.support.constraint.ConstraintLayout>
 
