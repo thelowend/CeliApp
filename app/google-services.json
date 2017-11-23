@@ -15,6 +15,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "888775899505-uhkb94mvh4t9f2s0fdrbhcmhro4imuhc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "celiacos.seminarioii.prototipo.google.com.celiapp",
+            "certificate_hash": "6f5d3c3a38c44cb6f799b795891ab69f4df6f060"
+          }
+        },
+        {
+          "client_id": "888775899505-0cppjk0hc5r5abnsqifub9j2p9sn5j3t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "celiacos.seminarioii.prototipo.google.com.celiapp",
+            "certificate_hash": "c7cd77033bd799af5bafce8fffe25506e04466ae"
+          }
+        },
+        {
           "client_id": "888775899505-0l1rr1a7kms4jheoovt48tsmtfmlepqq.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
